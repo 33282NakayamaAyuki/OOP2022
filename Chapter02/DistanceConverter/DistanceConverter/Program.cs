@@ -5,51 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DistanceConverter {
-    class Program {
+    public class Program {
         //コマンドライン引数
         static void Main(string[] args)
         {
             if (args.Length >= 1 && args[0] == "-tom")
             {
                 //フィートからメートルへの対応表を出力
-                PrintFeetToMeterList(1,10);
+                PrintFeetToMeterList(1, 10);
             }
             else
             {
                 //メートルからフィートへの対応表を出力
-                PrintMeterToFeetList(1,10);
+                PrintMeterToFeetList(1, 10);
 
             }
         }
+        //static FeetConverter feetconverter = new FeetConverter();
 
         //フィートからメートルへの対応表を出力
-        private static void PrintFeetToMeterList(int start ,int stop)
+        private static void PrintMeterToFeetList(int start, int stop)
         {
-            for (int feet = start; feet <= stop; feet++)
+            FeetConverter feetconverter = new FeetConverter();
+            for (int meter = start; meter <= stop; meter++)
             {
-                double meter = FeetToMeter(feet);
+                double feet = feetconverter.FromMeter(meter);
                 Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
         }
-        //メートルからフィートへの対応表を出力
-        private static void PrintMeterToFeetList(int start , int stop)
+//フィートからメートルへの対応表を出力
+        private static void PrintFeetToMeterList(int start ,int stop)
         {
-            for (int meter = start; meter <= stop; meter++)
+            FeetConverter feetconverter = new FeetConverter();
+            for (int feet = start; feet <= stop; feet++)
             {
-                double feet = MeterToFeet(meter);
-                Console.WriteLine("{0} ft = {1:0.0000} m", meter, feet);
+                double meter = feetconverter.ToMeter(feet);
+                Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
-        }
-
-
-        //フィートからメートルを求める
-        static double FeetToMeter(int feet) { 
-                return feet * 0.3048;
-        }
-
-        //メートルからフィートを求める
-        static double MeterToFeet(int meter) {
-            return meter / 0.3048;
         }
     }
 }
