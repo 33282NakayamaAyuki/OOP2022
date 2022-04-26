@@ -26,20 +26,20 @@ namespace DistanceConverter {
         //フィートからメートルへの対応表を出力
         private static void PrintMeterToFeetList(int start, int stop)
         {
-            FeetConverter feetconverter = new FeetConverter();
+            //FeetConverter feetconverter = new FeetConverter();
             for (int meter = start; meter <= stop; meter++)
             {
-                double feet = feetconverter.FromMeter(meter);
+                double feet = FeetConverter.FromMeter(meter);
                 Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
         }
-//フィートからメートルへの対応表を出力
-        private static void PrintFeetToMeterList(int start ,int stop)
+        //フィートからメートルへの対応表を出力
+        private static void PrintFeetToMeterList(int start, int stop)
         {
-            FeetConverter feetconverter = new FeetConverter();
+            //FeetConverter feetconverter = new FeetConverter();
             for (int feet = start; feet <= stop; feet++)
             {
-                double meter = feetconverter.ToMeter(feet);
+                double meter = FeetConverter.ToMeter(feet);
                 Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
         }
