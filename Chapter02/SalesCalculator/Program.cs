@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 namespace SalesCalculator {
     class Program {
         static void Main(string[] args) {
-            SalesCounter sales = new SalesCounter("sales.csv");
-            IDictionary<string, int> amountPerStore = sales.GetPerStoreSales();
-            foreach (KeyValuePair<String, int> obj in amountPerStore)
+            var sales = new SalesCounter("sales.csv");
+            var amountPerStore = sales.GetPerStoreSales();
+            foreach (var obj in amountPerStore)
             {
                 Console.WriteLine("{0} {1}", obj.Key, obj.Value);
             }
 
-            int data;
-            double num = 234.5;
+            //int data;
+            //double num = 234.5;
 
-            data = (int)num;//キャスト
+            //data = (int)num;//キャスト
         
         }
        
