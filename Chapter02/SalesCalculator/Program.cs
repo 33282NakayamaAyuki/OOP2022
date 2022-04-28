@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace SalesCalculator {
     class Program {
-         static void Main(string[] args)
-        {
-            SalesCounter sales = new SalesCounter(SalesCounter.ReadSales("sales.csv"));
+        static void Main(string[] args) {
+            SalesCounter sales = new SalesCounter("sales.csv");
             Dictionary<string, int> amountPerStore = sales.GetPerStoreSales();
             foreach (KeyValuePair<String, int> obj in amountPerStore)
             {
