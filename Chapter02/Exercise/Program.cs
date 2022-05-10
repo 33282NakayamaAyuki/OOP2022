@@ -9,9 +9,9 @@ namespace Exercise {
 
         static void Main(String[] args) {
 
-            var song1 = new Song("a", "a", 9);
-            var song2 = new Song("a", "a", 9);
-            var song3 = new Song("a", "a", 9);
+            var song1 = new Song("a", "a", 204);
+            var song2 = new Song("b", "b", 340);
+            var song3 = new Song("c", "c", 180);
 
             var songs = new List<Song>();
             songs.Add(song1);
@@ -26,15 +26,19 @@ namespace Exercise {
             //    new Song("a", "a", 9),
             //};
 
-           // PrintSongs(songs);
+            PrintSongs(songs);
         }
-        //private static void PrintSongs(List<Song> songs)
-        //{
-        //    foreach (var song in songs)
-        //    {
+        private static void PrintSongs(List<Song> songs)
+        {
+            foreach (var song in songs)
+            {
+                Console.WriteLine("{0},{1},{2:m\\:ss}",//分と秒のみ表示
+                    song.Title,song.ArtistName,TimeSpan.FromSeconds(song.Length));
 
-        //        Console.WriteLine("[{0}]", (",", songs));
-        //    }
-        //}
+                //Console.WriteLine("{0},{1},{2}",時間まで表示（普段）
+                //    song.Title, song.ArtistName, TimeSpan.FromSeconds(song.Length));
+
+            }
+        }
     }
 }
