@@ -15,11 +15,12 @@ namespace SalesCalculator {
             _sales = ReadSales(filePath);
         }
         //店舗別売り上げを求める
-        public IDictionary<String, int> GetPerStoreSales() {
+        public IDictionary<String, int> GetPerStoreSales()
+        {
             var dict = new Dictionary<string, int>();
-            foreach  (var sale in _sales)
+            foreach (var sale in _sales)
             {
-                if (dict.ContainsKey(sale.ShopName))
+                if (dict.ContainsKey(sale.ProductCategory))
                     dict[sale.ShopName] += sale.Amount;
                 else
                     dict[sale.ShopName] = sale.Amount;

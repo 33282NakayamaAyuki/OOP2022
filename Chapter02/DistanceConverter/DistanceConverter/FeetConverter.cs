@@ -10,14 +10,14 @@ namespace DistanceConverter {
 
         //public static readonly double ratio = 0.3048;//外部からもアクセスさせたい場合
         //フィートからメートルを求める(静的メソッド)
-        public static double FromMeter(double Meter)
+        public static double ToMeter(double feet)
         {
-            return Meter / ratio;
+            return feet * ratio;
         }
 
         //メートルからフィートを求める(静的メソッド)
-        public static double ToMeter(double feet) {
-            return feet / ratio;
+        public static double FromMeter(double Meter) {
+            return Meter / ratio;
         }
     }
 }

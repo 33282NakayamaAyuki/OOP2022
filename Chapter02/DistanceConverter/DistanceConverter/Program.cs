@@ -29,7 +29,7 @@ namespace DistanceConverter {
             //FeetConverter feetconverter = new FeetConverter();
             for (int meter = start; meter <= stop; meter++)
             {
-                double feet = FeetConverter.FromMeter(meter);
+                double feet = FeetConverter.ToMeter(meter);
                 Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
         }
@@ -39,7 +39,7 @@ namespace DistanceConverter {
             //FeetConverter feetconverter = new FeetConverter();
             for (int feet = start; feet <= stop; feet++)
             {
-                double meter = FeetConverter.ToMeter(feet);
+                double meter = FeetConverter.FromMeter(feet);
                 Console.WriteLine("{0} ft = {1:0.0000} m", feet, meter);
             }
         }

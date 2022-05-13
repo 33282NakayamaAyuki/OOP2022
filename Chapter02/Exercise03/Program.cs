@@ -12,6 +12,7 @@ namespace Exercise03 {
             int select = 0;
             var sales = new SalesCounter("sales.csv");
             IDictionary<String, int> amountPerStore = null;
+            
             while (true)
             {
 

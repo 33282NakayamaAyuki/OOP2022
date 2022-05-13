@@ -25,10 +25,10 @@ namespace Exercise {
             //    new Song("a", "a", 9),
             //    new Song("a", "a", 9),
             //};
-
+            
             PrintSongs(songs);
         }
-        private static void PrintSongs(List<Song> songs)
+        private static void PrintSongs(List<Song> songs)//List < IEnumerable
         {
             foreach (var song in songs)
             {
