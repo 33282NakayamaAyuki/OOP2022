@@ -34,7 +34,7 @@ namespace Excercise02 {
                 if (string.IsNullOrEmpty(line))
                     break;
                     
-                var index = names.FindIndex(n => n == line); 
+                var index = names.FindIndex(s => s == line); 
                 Console.WriteLine(index);
                 
 
@@ -43,25 +43,27 @@ namespace Excercise02 {
 
         private static void Exercise2_2(List<string> names)
         {
-             var count = names.Count(n => n.Contains("o"));
+             var count = names.Count(s => s.Contains('o'));
              Console.WriteLine(count + "都市");
         }
 
         private static void Exercise2_3(List<string> names)
         {
-            var list = names.Where(n => n.Contains("o")).ToList();
-            foreach (var n in list) 
+    
+            var selected = names.Where(s => s.Contains('o')).ToArray();
+            foreach (var name in selected) 
             {
-                Console.WriteLine(n);
+                Console.WriteLine(name);
             }
         }
 
         private static void Exercise2_4(List<string> names)
         {
-            var Bcity = names.Where(s => s.StartsWith("B")).Select(s => s.Length);
-            foreach (var s in Bcity)
+            var selected = names.Where(s => s.StartsWith("B")).Select(s => new { s.Length, s});
+            
+            foreach (var name in selected)
             {
-                Console.WriteLine(s);
+                Console.WriteLine(name.Length + name.s);
             }
         }
     }
