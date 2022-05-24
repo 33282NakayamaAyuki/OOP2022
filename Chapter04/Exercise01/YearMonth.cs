@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Exercise01 {
     public class YearMonth {
-        
+
         public int Year { get; private set; }
 
         public int Month { get; private set; }
 
         //コンストラクタ
-        public YearMonth(int year, int month) {
+        public YearMonth(int year, int month)
+        {
             Year = year;
             Month = month;
         }
@@ -31,18 +32,18 @@ namespace Exercise01 {
 
             if (Month == 12)
             {
-                return new YearMonth(this.Year + 1,1);
+                return new YearMonth(this.Year + 1, 1);
             } else
             {
                 Month++;
-                return new YearMonth(this.Year,Month + 1);
+                return new YearMonth(this.Year, Month + 1);
             }
         }
         //4.1.4
         public override string ToString()
         {
             //return Year + "年" + Month + "月";
-            return $"{Year}年{Month}月"; 
+            return $"{Year}年{Month}月";
         }
     }
 }
