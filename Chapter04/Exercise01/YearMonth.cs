@@ -35,7 +35,6 @@ namespace Exercise01 {
                 return new YearMonth(this.Year + 1, 1);
             } else
             {
-                Month++;
                 return new YearMonth(this.Year, Month + 1);
             }
         }
