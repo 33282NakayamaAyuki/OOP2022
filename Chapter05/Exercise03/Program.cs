@@ -54,14 +54,29 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
-            String[] words = text.Split(' ');
-            var sb = new StringBuilder();
-            foreach (var word in words)
+            //自分
+            //String[] words = text.Split(' ');
+            //var sb = new StringBuilder();
+            //foreach (var word in words)
+            //{
+            //    sb.Append(word + ' ');
+            //}
+            //Console.WriteLine(sb);
+
+            //先生
+
+            var array = text.Split(' ').ToArray();
+            if (array.Length > 0)
             {
-                sb.Append(word + ' ');
+                var sb = new StringBuilder(array[0]);
+                foreach (var word in array.Skip(1))
+                {
+                    sb.Append(' ');
+                    sb.Append(word);
+                }
+                var str = sb.ToString();
+                Console.WriteLine(str);
             }
-            var texts = sb.ToString();
-            Console.WriteLine(texts);
         }
     }
 }
