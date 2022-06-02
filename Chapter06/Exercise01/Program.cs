@@ -43,10 +43,11 @@ namespace Exercise01 {
 
         private static void Exercise1_3(int[] numbers)
         {
-            foreach (var number in numbers)
+            var strs = numbers.Select(n => n.ToString());
+
+            foreach (var s in strs)
             {
-                var num = number.ToString();
-                Console.WriteLine(num);
+                Console.WriteLine(s);
             }
             
            
@@ -62,9 +63,8 @@ namespace Exercise01 {
 
         private static void Exercise1_5(int[] numbers)
         {
-            var distinct = numbers.Distinct();
-            var results = numbers.Count(num => num > 10);
-            Console.WriteLine(results);
+            var count = numbers.Distinct().Count(num => num > 10);
+            Console.WriteLine(count);
         }
     }
 }
