@@ -14,7 +14,7 @@ namespace AddressBook {
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new label());
+            Application.Run(new Form1());
         }
     }
 }
