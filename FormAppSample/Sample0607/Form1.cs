@@ -10,25 +10,23 @@ using System.Windows.Forms;
 
 namespace Sample0607 {
     public partial class Form1 : Form {
+
+        Random rand = new Random();
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Keisan_Click(object sender, EventArgs e)
+        //ボタンクリックイベントハンドラ
+        private void btRandom_Click(object sender, EventArgs e)
         {
-            if (nudNum2.Value != 0)
-            {
-                nudAns.Value = nudNum1.Value / nudNum2.Value;
-                nudMod.Value = nudNum1.Value % nudNum2.Value;
-            } else {
-                MessageBox.Show("0は除算できません",
-                "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
-            }
-
+            //Number01.Value = rand.Next(minValue: 1, maxValue: 6);
+            textBox.Text = rand.Next(minValue: (int)Number01.Value, maxValue: (int)Number02.Value+1).ToString();    
+        }
+        //イベントハンドラ（起動時に１度だけ実行）
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox.Text = rand.Next(minValue: 1, maxValue: 6).ToString();
         }
     }
 }
