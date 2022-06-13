@@ -16,11 +16,11 @@ namespace AddressBook {
         public string Address { get; set; }
         [System.ComponentModel.DisplayName("会社")]
         public string Company { get; set; }
-        public List<Grouptype> listGroup{ get; set; }
+        public List<GroupType> listGroup{ get; set; }
         [System.ComponentModel.DisplayName("画像")]
         public Image Picture { get; set; }
 
-        public enum Grouptype { 
+        public enum GroupType { 
             家族,
             友人,
             仕事,
