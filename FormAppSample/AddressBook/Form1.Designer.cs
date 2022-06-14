@@ -105,6 +105,7 @@ namespace AddressBook {
             // dgvPersons
             // 
             this.dgvPersons.AllowUserToAddRows = false;
+            this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersons.Location = new System.Drawing.Point(69, 310);
             this.dgvPersons.Name = "dgvPersons";

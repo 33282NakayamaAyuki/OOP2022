@@ -19,6 +19,15 @@ namespace AddressBook {
             dgvPersons.DataSource = listPerson;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btUpdate.Enabled = false;//更新ボタンをマスク
+            btremove.Enabled = false;//削除ボタンをマスク
+            btPictureClear.Enabled = false;//削除ボタンをマスク
+            dgvPersons.Refresh();
+
+        }
+
         private void btPictureOpen_Click(object sender, EventArgs e)
         {
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK)
@@ -48,7 +57,10 @@ namespace AddressBook {
             } else {
                 MessageBox.Show("名前を入力してください");
             }
-            
+            btUpdate.Enabled = true;//更新ボタンをマスク
+            btremove.Enabled = true;//削除ボタンをマスク
+            btPictureClear.Enabled = true;//削除ボタンをマスク
+            dgvPersons.Refresh();
 
         }
 
@@ -83,13 +95,46 @@ namespace AddressBook {
         //データグリッドビューをクリックした時のイベントハンドラ
         private void dgvPersons_Click(object sender, EventArgs e)
         {
+            if (dgvPersons.CurrentRow == null) return;
 
+            int index = dgvPersons.CurrentRow.Index;
+
+            tbName.Text = listPerson[index].Name;
+            tbMailAddress.Text = listPerson[index].MailAddress;
+            tbAddress.Text = listPerson[index].Address;
+            tbCompany.Text = listPerson[index].Company;
+            pbPicture.Image = listPerson[index].Picture;
+
+            groupCheckBoxAllClear();
+
+            foreach (var group in listPerson[index].listGroup)
+            {
+                switch (group)
+                {
+                    case Person.GroupType.家族:
+                        cbFamily.Checked = true;
+                        break;
+                    case Person.GroupType.友人:
+                        cbFriend.Checked = true;
+                        break;
+                    case Person.GroupType.仕事:
+                        cbWork.Checked = true;
+                        break;
+                    case Person.GroupType.その他:
+                        cbOther.Checked = true;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
         }
 
-        //グループのチェックボックスをオールクリア
-        private void groupCheckBoxAllClear()
+            //グループのチェックボックスをオールクリア
+            private void groupCheckBoxAllClear()
         {
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+
         }
 
         //更新ボタンが押された時の処理
@@ -110,17 +155,15 @@ namespace AddressBook {
 
         private void btremove_Click(object sender, EventArgs e)
         {
-            dgvPersons.Rows.RemoveAt(dgvPersons.CurrentRow.Index);
+            listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
             dgvPersons.Refresh();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-                btUpdate.Enabled = false;//更新ボタンをマスク
-                btremove.Enabled = false;//削除ボタンをマスク
-                btPictureClear.Enabled = false;//削除ボタンをマスク
-                dgvPersons.Refresh();
+            if (listPerson.Count() > 0)
+            {
+                
+                btUpdate.Enabled = true;//更新ボタンをマスク
+                btremove.Enabled = true;//削除ボタンをマスク
+                btPictureClear.Enabled = true;//削除ボタンをマスク
+            }
         }
     }
 }
