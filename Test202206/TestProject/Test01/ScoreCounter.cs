@@ -16,14 +16,24 @@ namespace Test01 {
 
         //メソッドの概要： 
         private static IEnumerable<Student> ReadScore(string filePath) {
-            
+
+            var dict = new Dictionary<string, int>();
+            foreach (var students in _score)
+            {
+                if (dict.ContainsKey(students.Subject))
+                    dict[students.Name] += students.score;
+                else
+                    dict[students.Name] = students.score;
+            }
+
+
+            return dict;
 
 
 
 
 
 
-            
         }
 
         //メソッドの概要： 
