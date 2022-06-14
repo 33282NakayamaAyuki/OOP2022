@@ -37,7 +37,7 @@ namespace Test02 {
         //　　　　出力結果【618】
         private static void Exercise01(List<int> numbers) {
 
-            int number = numbers.Sum();
+            var number = numbers.Sum();
             Console.WriteLine(number);
 
         }
@@ -46,7 +46,7 @@ namespace Test02 {
         //　　　　出力結果【94】
         private static void Exercise02(List<int> numbers) {
 
-            int number = numbers.Where(num => num % 2 == 0).Max();
+            var number = numbers.Where(num => num % 2 == 0).Max();
             Console.WriteLine(number);
 
         }

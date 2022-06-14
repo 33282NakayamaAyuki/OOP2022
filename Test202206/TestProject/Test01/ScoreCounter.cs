@@ -15,7 +15,7 @@ namespace Test01 {
         }
 
 
-        //メソッドの概要： 
+        //メソッドの概要： 点数のデータを読み込み、Studentオブジェクトのリストを返す
         private static IEnumerable<Student> ReadScore(string filePath) {
 
             List<Student> scores = new List<Student>();
@@ -23,20 +23,20 @@ namespace Test01 {
             foreach (String line in lines)
             {
                 String[] items = line.Split(',');
-                Student sale = new Student
+                Student student = new Student
                 {
                     Name = items[0],
                     Subject = items[1],
                     score = int.Parse(items[2])
                 };
-                scores.Add(sale);
+                scores.Add(student);
             }
 
             return scores;
 
         }
 
-        //メソッドの概要： 
+        //メソッドの概要： 科目ごとに点数を足していく（科目ごとの合計を求めている）
         public IDictionary<string, int> GetPerStudentScore() {
 
             var dict = new Dictionary<string, int>();
