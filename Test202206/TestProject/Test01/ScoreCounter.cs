@@ -7,16 +7,18 @@ namespace Test01 {
         private IEnumerable<Student> _score;
 
         // コンストラクタ
-        public ScoreCounter(string filePath) {
+        public ScoreCounter(string filePath)
+        {
 
-            _score = ReadScore(filePath);
+            _score = ReadScore(filePath);//_scoreにファイルを読み込む
 
 
         }
 
 
         //メソッドの概要： 点数のデータを読み込み、Studentオブジェクトのリストを返す
-        private static IEnumerable<Student> ReadScore(string filePath) {
+        private static IEnumerable<Student> ReadScore(string filePath)
+        {
 
             List<Student> scores = new List<Student>();
             String[] lines = File.ReadAllLines(filePath);
@@ -37,7 +39,8 @@ namespace Test01 {
         }
 
         //メソッドの概要： 科目ごとに点数を足していく（科目ごとの合計を求めている）
-        public IDictionary<string, int> GetPerStudentScore() {
+        public IDictionary<string, int> GetPerStudentScore()
+        {
 
             var dict = new Dictionary<string, int>();
             foreach (var scores in _score)

@@ -41,27 +41,30 @@ namespace AddressBook {
         //追加ボタンが押された時の処理
         private void btAddPerson_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(tbName.Text)) {
+                MessageBox.Show("氏名が入力されていません");
+                return;
+            }
+
             Person newPerson = new Person
             {
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
                 Address = tbAddress.Text,
-                Company = tbCompany.Text,
+                Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
             };
-            if (tbName.Text != "")
-            {
-
-                listPerson.Add(newPerson);
-            } else {
-                MessageBox.Show("名前を入力してください");
-            }
+            listPerson.Add(newPerson);
             btUpdate.Enabled = true;//更新ボタンをマスク
-            btremove.Enabled = true;//削除ボタンをマスク
+            btremove.Enabled = true;//ns.r]削除ボタンをマスク
             btPictureClear.Enabled = true;//削除ボタンをマスク
             dgvPersons.Refresh();
 
+            if (!cbCompany.Items.Contains(cbCompany.Text))
+            {
+                cbCompany.Items.Add(cbCompany.Text);
+            }
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -102,7 +105,7 @@ namespace AddressBook {
             tbName.Text = listPerson[index].Name;
             tbMailAddress.Text = listPerson[index].MailAddress;
             tbAddress.Text = listPerson[index].Address;
-            tbCompany.Text = listPerson[index].Company;
+            cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
 
             groupCheckBoxAllClear();
@@ -146,7 +149,7 @@ namespace AddressBook {
             listPerson[index].Name = tbName.Text;
             listPerson[index].MailAddress = tbMailAddress.Text;
             listPerson[index].Address = tbAddress.Text;
-            listPerson[index].Company = tbCompany.Text;
+            listPerson[index].Company = cbCompany.Text;
             listPerson[index].listGroup = GetCheckBoxGroup();
             listPerson[index].Picture = pbPicture.Image;
             dgvPersons.Refresh();
