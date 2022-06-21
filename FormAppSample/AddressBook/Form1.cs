@@ -51,7 +51,10 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
-                Registration = dtpResistDate.Value
+                Registration = dtpResistDate.Value,
+                KindNumber = GetCheckKindNumber(),
+                TeleNumber = teleNumber.Text,
+
             };
 
             
@@ -80,6 +83,7 @@ namespace AddressBook {
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
+            teleNumber.Text = listPerson[index].TeleNumber;
 
             dtpResistDate.Value = 
                 listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
@@ -101,6 +105,21 @@ namespace AddressBook {
                         break;
                     case Person.GroupType.その他:
                         cbOther.Checked = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            foreach (var group in listPerson[index].KindNumber)
+            {
+                switch (group)
+                {
+                    case Person.KindNumberType.自宅:
+                        cbFamily.Checked = true;
+                        break;
+                    case Person.KindNumberType.携帯:
+                        cbFriend.Checked = true;
                         break;
                     default:
                         break;
@@ -251,6 +270,21 @@ namespace AddressBook {
         private void groupCheckBoxAllClear()
         {
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+        }
+
+        //チェックボックスにセットされている値をリストとして取り出す
+        private List<Person.KindNumberType> GetCheckKindNumber()
+        {
+            var listGroup = new List<Person.KindNumberType>();
+            if (rbhome.Checked)
+            {
+                listGroup.Add(Person.KindNumberType.自宅);
+            }
+            if (rbmobile.Checked)
+            {
+                listGroup.Add(Person.KindNumberType.携帯);
+            }
+            return listGroup;
         }
     }
 }
