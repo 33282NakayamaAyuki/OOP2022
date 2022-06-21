@@ -51,7 +51,7 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
-                Registration = DateTime.Now,
+                Registration = dtpResistDate.Value
             };
 
             
@@ -80,6 +80,9 @@ namespace AddressBook {
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
+
+            dtpResistDate.Value = 
+                listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
 
             groupCheckBoxAllClear();
 
@@ -118,7 +121,7 @@ namespace AddressBook {
             listPerson[index].Company = cbCompany.Text;
             listPerson[index].listGroup = GetCheckBoxGroup();
             listPerson[index].Picture = pbPicture.Image;
-            listPerson[index].Registration = DateTime.Now;
+            listPerson[index].Registration = dtpResistDate.Value;
             dgvPersons.Refresh();
 
         }
@@ -157,9 +160,10 @@ namespace AddressBook {
         //開くボタンのイベントハンドラ
         private void btOpen_Click_1(object sender, EventArgs e)
         {
+
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK)
             {
-
+                
                 try
                 {
                     //バイナリ形式でシリアル化(保存できるようにしている)
@@ -178,7 +182,7 @@ namespace AddressBook {
                 {
                     MessageBox.Show(ex.Message);
                 }
-
+                cbCompany.Items.Clear();
                 foreach (var item in listPerson.Select(p => p.Company))
                 {
                     setCbCompany(item);//存在する会社を登録

@@ -52,7 +52,7 @@ namespace AddressBook {
             this.btOpen = new System.Windows.Forms.Button();
             this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpResistDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
@@ -113,12 +113,14 @@ namespace AddressBook {
             this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersons.Location = new System.Drawing.Point(82, 310);
+            this.dgvPersons.MultiSelect = false;
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.ReadOnly = true;
             this.dgvPersons.RowTemplate.Height = 21;
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(691, 180);
             this.dgvPersons.TabIndex = 1;
+            this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
             // 
             // tbName
             // 
@@ -298,19 +300,19 @@ namespace AddressBook {
             this.label6.TabIndex = 8;
             this.label6.Text = "登録日";
             // 
-            // dateTimePicker1
+            // dtpResistDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(609, 496);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 19);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dtpResistDate.Location = new System.Drawing.Point(609, 496);
+            this.dtpResistDate.Name = "dtpResistDate";
+            this.dtpResistDate.Size = new System.Drawing.Size(200, 19);
+            this.dtpResistDate.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 522);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpResistDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbCompany);
             this.Controls.Add(this.btPictureOpen);
@@ -371,7 +373,7 @@ namespace AddressBook {
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpResistDate;
     }
 }
 
