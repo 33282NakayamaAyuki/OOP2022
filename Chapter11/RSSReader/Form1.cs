@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,7 @@ namespace RSSReader {
             InitializeComponent();
         }
 
-private void btRssGet_Click(object sender, EventArgs e)
+    private void btRssGet_Click(object sender, EventArgs e)
         {
             using (var wc = new WebClient())
             {
@@ -48,23 +49,37 @@ private void btRssGet_Click(object sender, EventArgs e)
 
                 var url = xLink.ElementAt(index);
 
-                wbBrowser.Navigate(url);
+                //wbBrowser.Navigate(url);
+                wvBrowser.Source = new Uri(url);
             }
+            btback.Enabled = wvBrowser.CanGoBack;
         }
 
         private void btback_Click(object sender, EventArgs e)
         {
-            wbBrowser.GoBack();
+            wvBrowser.GoBack();
+            btback.Enabled = wvBrowser.CanGoBack;
+
         }
 
         private void btAdvance_Click(object sender, EventArgs e)
         {
-            wbBrowser.GoForward();
+            wvBrowser.GoForward();
+            btAdvance.Enabled = wvBrowser.CanGoBack;
+        }
+
+        private void wvBrowser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e)
+        {
+            btback.Enabled = wvBrowser.CanGoBack;
+            btAdvance.Enabled = wvBrowser.CanGoBack;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            btback.Enabled = wvBrowser.CanGoBack;
+
         }
+
     }
 }

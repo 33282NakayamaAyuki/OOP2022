@@ -30,9 +30,10 @@ namespace RSSReader {
             this.cbRssUrl = new System.Windows.Forms.ComboBox();
             this.btRssGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
-            this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.btback = new System.Windows.Forms.Button();
             this.btAdvance = new System.Windows.Forms.Button();
+            this.wvBrowser = new Microsoft.Toolkit.Forms.UI.Controls.WebView();
+            ((System.ComponentModel.ISupportInitialize)(this.wvBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRssUrl
@@ -64,15 +65,6 @@ namespace RSSReader {
             this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             this.lbRssTitle.SelectedIndexChanged += new System.EventHandler(this.lbRssTitle_Click);
             // 
-            // wbBrowser
-            // 
-            this.wbBrowser.Location = new System.Drawing.Point(293, 87);
-            this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbBrowser.Name = "wbBrowser";
-            this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(504, 529);
-            this.wbBrowser.TabIndex = 3;
-            // 
             // btback
             // 
             this.btback.Location = new System.Drawing.Point(723, 12);
@@ -93,20 +85,30 @@ namespace RSSReader {
             this.btAdvance.UseVisualStyleBackColor = true;
             this.btAdvance.Click += new System.EventHandler(this.btAdvance_Click);
             // 
+            // wvBrowser
+            // 
+            this.wvBrowser.Location = new System.Drawing.Point(293, 87);
+            this.wvBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wvBrowser.Name = "wvBrowser";
+            this.wvBrowser.Size = new System.Drawing.Size(694, 520);
+            this.wvBrowser.TabIndex = 5;
+            this.wvBrowser.NavigationCompleted += new System.EventHandler<Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs>(this.wvBrowser_NavigationCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 628);
+            this.ClientSize = new System.Drawing.Size(1054, 628);
+            this.Controls.Add(this.wvBrowser);
             this.Controls.Add(this.btAdvance);
             this.Controls.Add(this.btback);
-            this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btRssGet);
             this.Controls.Add(this.cbRssUrl);
             this.Name = "Form1";
             this.Text = "RSSReader";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.wvBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,9 +118,9 @@ namespace RSSReader {
         private System.Windows.Forms.ComboBox cbRssUrl;
         private System.Windows.Forms.Button btRssGet;
         private System.Windows.Forms.ListBox lbRssTitle;
-        private System.Windows.Forms.WebBrowser wbBrowser;
         private System.Windows.Forms.Button btback;
         private System.Windows.Forms.Button btAdvance;
+        private Microsoft.Toolkit.Forms.UI.Controls.WebView wvBrowser;
     }
 }
 
