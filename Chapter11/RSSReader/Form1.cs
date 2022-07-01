@@ -41,11 +41,25 @@ private void btRssGet_Click(object sender, EventArgs e)
 
         private void lbRssTitle_Click(object sender, EventArgs e)
         {
-            int index = lbRssTitle.SelectedIndex;
 
-            var url = xLink.ElementAt(index);
+            if (lbRssTitle.SelectedIndex != -1)
+            {
+                int index = lbRssTitle.SelectedIndex;
 
-            wbBrowser.Navigate(url);
+                var url = xLink.ElementAt(index);
+
+                wbBrowser.Navigate(url);
+            }
+        }
+
+        private void btback_Click(object sender, EventArgs e)
+        {
+            wbBrowser.GoBack();
+        }
+
+        private void btAdvance_Click(object sender, EventArgs e)
+        {
+            wbBrowser.GoForward();
         }
 
         private void Form1_Load(object sender, EventArgs e)

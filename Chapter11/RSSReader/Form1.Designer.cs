@@ -31,6 +31,8 @@ namespace RSSReader {
             this.btRssGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
+            this.btback = new System.Windows.Forms.Button();
+            this.btAdvance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbRssUrl
@@ -71,11 +73,33 @@ namespace RSSReader {
             this.wbBrowser.Size = new System.Drawing.Size(504, 529);
             this.wbBrowser.TabIndex = 3;
             // 
+            // btback
+            // 
+            this.btback.Location = new System.Drawing.Point(723, 12);
+            this.btback.Name = "btback";
+            this.btback.Size = new System.Drawing.Size(37, 34);
+            this.btback.TabIndex = 4;
+            this.btback.Text = "⇚";
+            this.btback.UseVisualStyleBackColor = true;
+            this.btback.Click += new System.EventHandler(this.btback_Click);
+            // 
+            // btAdvance
+            // 
+            this.btAdvance.Location = new System.Drawing.Point(766, 12);
+            this.btAdvance.Name = "btAdvance";
+            this.btAdvance.Size = new System.Drawing.Size(40, 35);
+            this.btAdvance.TabIndex = 4;
+            this.btAdvance.Text = "⇛";
+            this.btAdvance.UseVisualStyleBackColor = true;
+            this.btAdvance.Click += new System.EventHandler(this.btAdvance_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 628);
+            this.Controls.Add(this.btAdvance);
+            this.Controls.Add(this.btback);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btRssGet);
@@ -93,6 +117,8 @@ namespace RSSReader {
         private System.Windows.Forms.Button btRssGet;
         private System.Windows.Forms.ListBox lbRssTitle;
         private System.Windows.Forms.WebBrowser wbBrowser;
+        private System.Windows.Forms.Button btback;
+        private System.Windows.Forms.Button btAdvance;
     }
 }
 
