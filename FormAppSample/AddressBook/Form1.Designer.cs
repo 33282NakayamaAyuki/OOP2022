@@ -139,7 +139,7 @@ namespace AddressBook {
             // tbMailAddress
             // 
             this.tbMailAddress.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbMailAddress.Location = new System.Drawing.Point(265, 72);
+            this.tbMailAddress.Location = new System.Drawing.Point(265, 75);
             this.tbMailAddress.Name = "tbMailAddress";
             this.tbMailAddress.Size = new System.Drawing.Size(361, 31);
             this.tbMailAddress.TabIndex = 2;
@@ -147,7 +147,7 @@ namespace AddressBook {
             // tbAddress
             // 
             this.tbAddress.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbAddress.Location = new System.Drawing.Point(265, 125);
+            this.tbAddress.Location = new System.Drawing.Point(265, 124);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(361, 53);

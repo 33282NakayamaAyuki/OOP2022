@@ -237,6 +237,21 @@ namespace AddressBook {
             return listGroup;
         }
 
+        //チェックボックスにセットされている値をリストとして取り出す
+        private List<Person.KindNumberType> GetCheckKindNumber()
+        {
+            var listGroup = new List<Person.KindNumberType>();
+            if (rbhome.Checked)
+            {
+                listGroup.Add(Person.KindNumberType.自宅);
+            }
+            if (rbmobile.Checked)
+            {
+                listGroup.Add(Person.KindNumberType.携帯);
+            }
+            return listGroup;
+        }
+
         //更新・削除ボタンのマスク処理行う
         private void EnableCheck()
         {
@@ -270,21 +285,6 @@ namespace AddressBook {
         private void groupCheckBoxAllClear()
         {
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
-        }
-
-        //チェックボックスにセットされている値をリストとして取り出す
-        private List<Person.KindNumberType> GetCheckKindNumber()
-        {
-            var listGroup = new List<Person.KindNumberType>();
-            if (rbhome.Checked)
-            {
-                listGroup.Add(Person.KindNumberType.自宅);
-            }
-            if (rbmobile.Checked)
-            {
-                listGroup.Add(Person.KindNumberType.携帯);
-            }
-            return listGroup;
         }
     }
 }
