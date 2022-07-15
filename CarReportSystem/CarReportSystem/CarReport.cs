@@ -26,14 +26,14 @@ namespace CarReportSystem {
             get
             {
                 string groups = "";
-                foreach (MakerGroup group in listGroup)
+                foreach (MakerGroup group in ListGroup)
                 {
                     groups += "[" + group + "]";
                 }
                 return groups;
             }
         }
-        public List<MakerGroup> listGroup { get; set; }
+        public List<MakerGroup> ListGroup { get; set; }
 
 
         //メーカー
