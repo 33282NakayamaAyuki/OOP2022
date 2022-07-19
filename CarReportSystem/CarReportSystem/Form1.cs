@@ -9,12 +9,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
         //車用データ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
         int count = 0;
+        Settings settings = new Settings();
 
         public Form1()
         {
@@ -25,6 +28,27 @@ namespace CarReportSystem {
         private void Form1_Load(object sender, EventArgs e)
         {
             EnableCheck();
+
+            //設定ファイルを逆シリアル化して背景の色を設定
+            using (var reader = XmlReader.Create("setting"))
+            {
+                var serializer = new XmlSerializer(typeof(Settings)); //p185
+                var deserializer = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
+                this.BackColor = settings.MainFormColor;
+            }
+        }
+
+        //壁画の色を保存する
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //設定ファイルをシリアル化
+            using (var writer = XmlWriter.Create("setting"))
+            {
+                var serializer = new XmlSerializer(settings.GetType()); //p185
+                serializer.Serialize(writer, settings);
+                settings.MainFormColor = cdColorDialog.Color;
+            }
+
         }
 
         //画像を開くイベントハンドラ
@@ -82,7 +106,7 @@ namespace CarReportSystem {
             int index = dgvDataGridView.CurrentRow.Index;
 
             listCarReport[index].Date = dtpDateTimePicker.Value;
-            listCarReport[index].Report = cbCarName.Text;
+            listCarReport[index].Auther = cbReporter.Text;
             listCarReport[index].Maker = GetCheckBoxGroup();
             listCarReport[index].CarName = cbCarName.Text;
             listCarReport[index].Report = tbAddress.Text;
@@ -160,12 +184,13 @@ namespace CarReportSystem {
             }
         }
 
-        //色設定を開くイベントハンドラ
+        //色設定を反映イベントハンドラ
         private void 設定ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (cdColorDialog.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = cdColorDialog.Color;
+                settings.MainFormColor = cdColorDialog.Color;
             }
         }
 
@@ -266,6 +291,6 @@ namespace CarReportSystem {
                 count = 0;
             }
         }
-        
+
     }
 }
