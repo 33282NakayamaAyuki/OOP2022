@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarReportSystem {
-    
+    [Serializable]
     //設定情報
     public class Settings {
         public Color MainFormColor { get; set; }

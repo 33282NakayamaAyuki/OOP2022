@@ -30,11 +30,10 @@ namespace CarReportSystem {
             EnableCheck();
 
             //設定ファイルを逆シリアル化して背景の色を設定
-            using (var reader = XmlReader.Create("setting"))
+            using (var reader = XmlReader.Create("setting.xml"))
             {
                 var serializer = new XmlSerializer(typeof(Settings)); //p185
                 var deserializer = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
-                this.BackColor = settings.MainFormColor;
             }
         }
 
@@ -42,11 +41,10 @@ namespace CarReportSystem {
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //設定ファイルをシリアル化
-            using (var writer = XmlWriter.Create("setting"))
+            using (var writer = XmlWriter.Create("setting.xml"))
             {
                 var serializer = new XmlSerializer(settings.GetType()); //p185
                 serializer.Serialize(writer, settings);
-                settings.MainFormColor = cdColorDialog.Color;
             }
 
         }
