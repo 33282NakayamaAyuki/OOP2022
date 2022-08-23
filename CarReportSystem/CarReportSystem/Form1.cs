@@ -27,14 +27,15 @@ namespace CarReportSystem {
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            EnableCheck();
-
             //設定ファイルを逆シリアル化して背景の色を設定
             using (var reader = XmlReader.Create("setting.xml"))
             {
                 var serializer = new XmlSerializer(typeof(Settings)); //p185
-                var deserializer = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
+                settings = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
+                BackColor = Color.FromArgb(settings.MainFormColor);
             }
+
+            EnableCheck();
         }
 
         //壁画の色を保存する
@@ -57,7 +58,6 @@ namespace CarReportSystem {
                 pbPicture.Image = Image.FromFile(ofdFileOpenDialog.FileName);
             }
         }
-
         //画像を消すイベントハンドラ
         private void btDeletePicture_Click(object sender, EventArgs e)
         {
@@ -108,7 +108,7 @@ namespace CarReportSystem {
             listCarReport[index].Maker = GetCheckBoxGroup();
             listCarReport[index].CarName = cbCarName.Text;
             listCarReport[index].Report = tbAddress.Text;
-            listCarReport[index].Picture = pbPicture.Image; ;
+            listCarReport[index].Picture = pbPicture.Image;
             dgvDataGridView.Refresh();
         }
 
@@ -177,7 +177,6 @@ namespace CarReportSystem {
                 } catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-
                 }
             }
         }
@@ -188,7 +187,7 @@ namespace CarReportSystem {
             if (cdColorDialog.ShowDialog() == DialogResult.OK)
             {
                 this.BackColor = cdColorDialog.Color;
-                settings.MainFormColor = cdColorDialog.Color;
+                settings.MainFormColor = cdColorDialog.Color.ToArgb();
             }
         }
 
