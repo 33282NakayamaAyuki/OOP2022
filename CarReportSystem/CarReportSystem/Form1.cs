@@ -17,7 +17,8 @@ namespace CarReportSystem {
         //車用データ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
         int count = 0;
-        Settings settings = new Settings();
+        
+        Settings settings = Settings.getInstance();
 
         public Form1()
         {
@@ -27,27 +28,37 @@ namespace CarReportSystem {
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            EnableCheck();
             //設定ファイルを逆シリアル化して背景の色を設定
-            using (var reader = XmlReader.Create("setting.xml"))
+            try
             {
-                var serializer = new XmlSerializer(typeof(Settings)); //p185
-                settings = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
-                BackColor = Color.FromArgb(settings.MainFormColor);
+                using (var reader = XmlReader.Create("setting.xml"))
+                {
+                    var serializer = new XmlSerializer(typeof(Settings)); //p185
+                    settings = serializer.Deserialize(reader) as Settings;//as Novel キャストしている
+                    BackColor = Color.FromArgb(settings.MainFormColor);
+                }
+            } catch (Exception)
+            {
+
+
             }
 
-            EnableCheck();
         }
 
         //壁画の色を保存する
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //設定ファイルをシリアル化
-            using (var writer = XmlWriter.Create("setting.xml"))
+            EnableCheck();
+            if (File.Exists("setting.xml"))
             {
-                var serializer = new XmlSerializer(settings.GetType()); //p185
-                serializer.Serialize(writer, settings);
+                using (var writer = XmlWriter.Create("setting.xml"))
+                {
+                    var serializer = new XmlSerializer(settings.GetType()); //p185
+                    serializer.Serialize(writer, settings);
+                }
             }
-
         }
 
         //画像を開くイベントハンドラ
