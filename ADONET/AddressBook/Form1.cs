@@ -73,7 +73,7 @@ namespace AddressBook {
 
         private void btImageOpen_Click(object sender, EventArgs e)
         {
-            //ofdImage.Filter = "画像ファイル(*.jpg; *.png)";
+            ofdImage.Filter = "画像ファイル(*.jpg; *.png; *.bmp)| *.jpg;*.png; *.bmp";
             if (ofdImage.ShowDialog() == DialogResult.OK)
             {
                pbImage.Image = System.Drawing.Image.FromFile(ofdImage.FileName);
@@ -136,6 +136,11 @@ namespace AddressBook {
         {
             tbSearchName = null;
             addressTableTableAdapter.Fill(infosys202225DataSet.AddressTable);
+        }
+
+        private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Version().ShowDialog();
         }
     }
 }
