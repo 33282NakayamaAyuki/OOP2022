@@ -276,29 +276,5 @@ namespace CarReportSystem {
             //}
             #endregion//上の内容
         }
-
-        private void btChangeLarge_Click(object sender, EventArgs e)
-        {
-
-            count++;
-            if (count == 0)
-            {
-                pbPicture.SizeMode = PictureBoxSizeMode.Normal;
-            } else if (count == 1)
-            {
-                pbPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-            } else if (count == 2)
-            {
-                pbPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-            } else if (count == 3)
-            {
-                pbPicture.SizeMode = PictureBoxSizeMode.CenterImage;
-            } else if (count == 4)
-            {
-                pbPicture.SizeMode = PictureBoxSizeMode.Zoom;
-                count = 0;
-            }
-        }
-
     }
 }
