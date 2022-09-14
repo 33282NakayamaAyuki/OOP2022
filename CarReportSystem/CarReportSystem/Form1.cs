@@ -28,7 +28,8 @@ namespace CarReportSystem {
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            EnableCheck();
+
+            this.carReportDBTableAdapter.Fill(this.infosys202225DataSet.CarReportDB);
             //設定ファイルを逆シリアル化して背景の色を設定
             try
             {
@@ -43,6 +44,7 @@ namespace CarReportSystem {
 
 
             }
+            EnableCheck();
 
         }
 
@@ -50,7 +52,7 @@ namespace CarReportSystem {
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //設定ファイルをシリアル化
-            EnableCheck();
+
             if (File.Exists("setting.xml"))
             {
                 using (var writer = XmlWriter.Create("setting.xml"))
@@ -59,6 +61,8 @@ namespace CarReportSystem {
                     serializer.Serialize(writer, settings);
                 }
             }
+
+            EnableCheck();
         }
 
         //画像を開くイベントハンドラ
@@ -117,9 +121,9 @@ namespace CarReportSystem {
             setCbReporter(cbReporter.Text);
             setCbCarName(cbCarName.Text);
 
-            for (int row_index = 0; row_index < dgvDataGridView.Rows.Count; row_index++) {
-                dgvDataGridView.Rows[row_index].Height = 30;
-            }
+            //for (int row_index = 0; row_index < dgvDataGridView.Rows.Count; row_index++) {
+            //    dgvDataGridView.Rows[row_index].Height = 30;
+            //}
         }
 
         //修正のイベントハンドラ
@@ -254,7 +258,7 @@ namespace CarReportSystem {
 
             dtpDateTimePicker.Text = carReportDBDataGridView.CurrentRow.Cells[1].Value.ToString();
             cbCarName.Text = carReportDBDataGridView.CurrentRow.Cells[2].Value.ToString();
-            // = carReportDBDataGridView.CurrentRow.Cells[3].Value.ToString();
+            //GetCheckBoxGroup() = carReportDBDataGridView.CurrentRow.Cells[3].Value.ToString();
             cbReporter.Text = carReportDBDataGridView.CurrentRow.Cells[4].Value.ToString();
             tbAddress.Text = carReportDBDataGridView.CurrentRow.Cells[5].Value.ToString();
             if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull))
