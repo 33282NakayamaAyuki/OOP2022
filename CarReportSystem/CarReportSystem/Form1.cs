@@ -107,12 +107,12 @@ namespace CarReportSystem {
 #endif
 
             DataRow newRow = infosys202225DataSet.CarReportDB.NewRow();
-            newRow[1] = dtpDateTimePicker.Value;
-            newRow[2] = cbReporter.Text;
-            newRow[3] = GetCheckBoxGroup();
-            newRow[4] = cbCarName.Text;
-            newRow[5] = tbAddress.Text;
-            newRow[6] = ImageToByteArray(pbPicture.Image);
+            newRow[0] = dtpDateTimePicker.Value;
+            newRow[1] = cbReporter.Text;
+            newRow[2] = GetCheckBoxGroup();
+            newRow[3] = cbCarName.Text;
+            newRow[4] = tbAddress.Text;
+            newRow[5] = ImageToByteArray(pbPicture.Image);
             //データセットへ新しいレコードを追加
             infosys202225DataSet.CarReportDB.Rows.Add(newRow);
             //データベース更新
@@ -121,6 +121,9 @@ namespace CarReportSystem {
             EnableCheck();
             setCbReporter(cbReporter.Text);
             setCbCarName(cbCarName.Text);
+            this.Validate();
+            this.carReportDBDataGridView.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202225DataSet);
 
             for (int row_index = 0; row_index < carReportDBDataGridView.Rows.Count; row_index++)
             {
@@ -149,6 +152,10 @@ namespace CarReportSystem {
             carReportDBDataGridView.CurrentRow.Cells[5].Value = tbAddress.Text;
             carReportDBDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
 
+            this.Validate();
+            this.carReportDBDataGridView.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202225DataSet);
+
         }
 
         //削除のイベントハンドラ
@@ -163,6 +170,7 @@ namespace CarReportSystem {
         }
 
         //記録を開くイベントハンドラ
+        #region
         private void btOpenArticle_Click(object sender, EventArgs e)
         {
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK)
@@ -201,31 +209,15 @@ namespace CarReportSystem {
                 EnableCheck();
             }
         }
+        #endregion
 
         //記録を保存するイベントハンドラ
+        #region
         private void btSave_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.carReportDBDataGridView.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.infosys202225DataSet);
-            //if (sfdSaveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    try
-            //    {
-            //        //バイナリ形式でシリアル化(保存できるようにしている)
-            //        var bf = new BinaryFormatter();
 
-            //        using (FileStream fs = File.Open(sfdSaveFileDialog.FileName, FileMode.Create))
-            //        {
-            //            bf.Serialize(fs, listCarReport);
-            //        }
-
-            //    } catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
         }
+        #endregion
 
         //色設定を反映イベントハンドラ
         private void 設定ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -241,9 +233,8 @@ namespace CarReportSystem {
         private void carReportDBBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.carReportDBBindingSource.EndEdit();
+            this.carReportDBDataGridView.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202225DataSet);
-
         }
 
         //データベースに接続
@@ -299,7 +290,9 @@ namespace CarReportSystem {
             Application.Exit();
         }
 
-        //メソッド
+        
+        
+        //ここからメソッド
         //チェックボックスにセットされている値をリストとして取り出す
         private string GetCheckBoxGroup()
         {
@@ -324,14 +317,35 @@ namespace CarReportSystem {
        
         }
 
-        //グループのチェックボックスをオールクリア
-        private void groupCheckBoxAllClear()
+        //ラジオボタンに反映
+        private void GetRbInfomation()
         {
-            rbToyota.Checked = rbNissan.Checked = rbHonda.Checked = rbSubaru.Checked = rbOutsideCar.Checked
-                = rbOther.Checked = false;
+            switch (carReportDBDataGridView.CurrentRow.Cells[3].Value)
+            {
+                case "トヨタ":
+                    rbToyota.Checked = true;
+                    break;
+                case "日産":
+                    rbNissan.Checked = true;
+                    break;
+                case "ホンダ":
+                    rbHonda.Checked = true;
+                    break;
+                case "スバル":
+                    rbSubaru.Checked = true;
+                    break;
+                case "外国車":
+                    rbOutsideCar.Checked = true;
+                    break;
+                case "その他":
+                    rbOther.Checked = true;
+                    break;
+                default: break;
+            }
+
         }
 
-        //コンボボックスに登録
+        //コンボボックスに登録（Name）
         private void setCbCarName(string carName)
         {
             if (!cbCarName.Items.Contains(carName ))
@@ -340,7 +354,7 @@ namespace CarReportSystem {
             }
         }
 
-        //コンボボックスに登録
+        //コンボボックスに登録（Reporter）
         private void setCbReporter(string reporter)
         {
             if (!cbReporter.Items.Contains(reporter))
@@ -385,34 +399,5 @@ namespace CarReportSystem {
             return b;
         }
 
-        //ラジオボタンに反映
-        private void GetRbInfomation()
-        {
-            switch (carReportDBDataGridView.CurrentRow.Cells[3].Value)
-            {
-                case "トヨタ":
-                    rbToyota.Checked = true;
-                    break;
-                case "日産":
-                    rbNissan.Checked = true;
-                    break;
-                case "ホンダ":
-                    rbHonda.Checked = true;
-                    break;
-                case "スバル":
-                    rbSubaru.Checked = true;
-                    break;
-                case "外国車":
-                    rbOutsideCar.Checked = true;
-                        break;
-                case "その他":
-                    rbOther.Checked = true;
-                    break;
-                default: break;
-            }
-            
-        }
-
-        
     }
 }
