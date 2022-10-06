@@ -78,6 +78,7 @@ namespace CarReportSystem {
         private void btDeletePicture_Click(object sender, EventArgs e)
         {
             pbPicture.Image = null;
+            carReportDBDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
         }
 
         //追加のイベントハンドラ
