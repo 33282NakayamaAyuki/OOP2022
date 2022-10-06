@@ -9,21 +9,84 @@ namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args)
         {
-            //InsertBooks();
-            //var books = GetAllBooks();
-            //foreach (var book in books)
-            //{
-            //    Console.WriteLine("タイトル:" + book.Title);
-            //    Console.WriteLine("発行年:" + book.PublishedYear);
-            //    Console.WriteLine("------------------------");
-
-            //}
             //AddAuthors();
-            AddBooks();
+            //AddBooks();
+
+            //Exercise_02();
+            //Console.WriteLine();
+            //Exercise_03();
+            //Console.WriteLine();
+            //Exercise_04();
+            //Console.WriteLine();
+            var authors = Exercise_0501();
+            foreach (var author in authors)
+            {
+                Console.WriteLine($"{author.Name} {author.Birthday.ToString("yyyy/MM")}");
+                var books = Exercise_0502(author.Name);
+                foreach (var book in books)
+                {
+                    Console.WriteLine($"  {book.Title} {book.PublishedYear}");
+
+                }
+                Console.WriteLine();
+            }
+
         }
 
-        // List 13-9
-        private static void AddAuthors()
+        public static void Exercise_02() {
+            
+            var books = GetAllBooks();
+            foreach (var book in books)
+            {
+                Console.WriteLine("タイトル:{0} 発行年:{1} 著者:{2}", book.Title, book.PublishedYear ,book.Author.Name);
+
+            }
+        }
+
+        public static void Exercise_03() {
+            using (var db = new BooksDbContext())
+            {
+                var books = db.Books
+                            .Where(b => b.Title.Length == db.Books.Max(c => c.Title.Length));
+                foreach (var book in books)
+                {
+                    Console.WriteLine(book.Title);
+                }
+
+            }
+        }
+        
+        public static void Exercise_04()
+        {
+            using (var db = new BooksDbContext())
+            {
+                var books = db.Books.OrderBy(b => b.PublishedYear).Take(3);
+                foreach (var book in books)
+                {
+                    Console.WriteLine(book.Title);
+                }
+
+            }
+        }
+
+        public static IEnumerable<Author> Exercise_0501()
+        {
+            using (var db = new BooksDbContext())
+            {
+                return db.Authors.OrderByDescending(a => a.Birthday).ToList();
+            }
+        }
+        public static IEnumerable<Book> Exercise_0502(string name)
+        {
+            using (var db = new BooksDbContext())
+            {
+                return db.Books.Where(b => b.Author.Name == name).ToList();
+            }
+        }
+
+
+    // List 13-9
+    private static void AddAuthors()
         {
             using (var db = new BooksDbContext())
             {
@@ -55,6 +118,20 @@ namespace SampleEntityFramework {
                     Name = "川端康成"
                 };
                 db.Authors.Add(author4);
+                var author5 = new Author
+                {
+                    Birthday = new DateTime(1909, 6, 19),
+                    Gender = "M",
+                    Name = "太宰治"
+                };
+                db.Authors.Add(author5);
+                var author6 = new Author
+                {
+                    Birthday = new DateTime(1867, 1, 5),
+                    Gender = "M",
+                    Name = "夏目漱石"
+                };
+                db.Authors.Add(author6);
                 db.SaveChanges();
             }
         }
@@ -157,7 +234,7 @@ namespace SampleEntityFramework {
 
         static IEnumerable<Book> GetAllBooks() {
             using (var db = new BooksDbContext()) {
-                return db.Books.ToList();
+                return db.Books.Include(nameof(Author)).ToList();
             }
         }
 
@@ -166,7 +243,7 @@ namespace SampleEntityFramework {
             using (var db = new BooksDbContext())
             {
                 return db.Books
-                    .Where(book=>book.Author.Name.StartsWith("夏目"))
+                    .Where(book => book.Title.Length == db.Books.Max(b =>b.Title.Length))
                     ;
             }
         }
