@@ -16,7 +16,7 @@ namespace Exercise１ {
             Console.WriteLine();
             Exercise1_5();
             Console.WriteLine();
-            Exercise1_6();
+//            Exercise1_6();
             Console.WriteLine();
             Exercise1_7();
             Console.WriteLine();
@@ -32,6 +32,12 @@ namespace Exercise１ {
                            .First()
                            ;
             Console.WriteLine(maxpoint);
+
+#if　先生の
+            var max = Library.Books.Max(b => b.Price);
+            var book = Library.Books.Where(b => b.Price == max)
+            Console.WriteLine(book);
+#endif
         }
 
         private static void Exercise1_3()
@@ -95,14 +101,65 @@ namespace Exercise１ {
 
         private static void Exercise1_6()
         {
+            var orders = Library.Books
+                                .Join(Library.Categories,
+                                        book => book.CategoryId,
+                                        category => category.Id,
+                                        (book, category) => new
+                                        {
+                                            Title = book.Title,
+                                            Category = category.Name,
+                                            PublishedYear = book.PublishedYear,
+                                            Price = book.Price
+                                        }
+                                   )
+                                .GroupBy(b => b.Category)
+                                ;
+
+
+            foreach (var count in orders)
+            {
+                Console.WriteLine($"{count.Key}年:{count.Count()}冊");
+            }
         }
 
         private static void Exercise1_7()
         {
+            var selected = Library.Books
+                              .Where(b => b.CategoryId == 1)
+                              .GroupBy(b => b.PublishedYear)
+                              .OrderBy(b => b.Key)
+                             ;
+
+            foreach (var select in selected)
+            {
+                Console.WriteLine($"#{select.Key}年");
+                foreach (var s in select)
+                {
+                    Console.WriteLine($"  {s.Title}");
+                }
+
+            }
         }
 
         private static void Exercise1_8()
         {
+            var counts = Library.Books
+                                .GroupJoin(Library.Categories,
+                                book => book.CategoryId,
+                                category => category.Id,
+                                        (book, category) => new
+                                        {
+                                            Category = category
+                                        }
+                                )
+                                .Where(b => b.Category.Count() >= 4)
+                                ;
+            foreach (var count in counts)
+            {
+                Console.WriteLine($"{count.Category}");
+            }
+            
         }
     }
 }
