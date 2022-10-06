@@ -16,7 +16,7 @@ namespace Exercise１ {
             Console.WriteLine();
             Exercise1_5();
             Console.WriteLine();
-//            Exercise1_6();
+            Exercise1_6();
             Console.WriteLine();
             Exercise1_7();
             Console.WriteLine();
@@ -102,24 +102,27 @@ namespace Exercise１ {
         private static void Exercise1_6()
         {
             var orders = Library.Books
+                                .GroupBy(b => b.CategoryId)
                                 .Join(Library.Categories,
-                                        book => book.CategoryId,
+                                        book => book.Key,
                                         category => category.Id,
                                         (book, category) => new
                                         {
-                                            Title = book.Title,
                                             Category = category.Name,
-                                            PublishedYear = book.PublishedYear,
-                                            Price = book.Price
+                                            Books = book,
                                         }
-                                   )
-                                .GroupBy(b => b.Category)
+                                 )
+                                .OrderBy(b=>b.Category)
                                 ;
 
 
             foreach (var count in orders)
             {
-                Console.WriteLine($"{count.Key}年:{count.Count()}冊");
+                Console.WriteLine($"#{count.Category}");
+                foreach (var a in count.Books)
+                {
+                    Console.WriteLine($" {a.Title}");
+                }
             }
         }
 
@@ -144,17 +147,19 @@ namespace Exercise１ {
 
         private static void Exercise1_8()
         {
-            var counts = Library.Books
-                                .GroupJoin(Library.Categories,
-                                book => book.CategoryId,
-                                category => category.Id,
-                                        (book, category) => new
+            var counts = Library.Categories
+                                .GroupJoin(Library.Books,
+                                book => book.Id,
+                                category => category.CategoryId,
+                                        (category, book) => new
                                         {
-                                            Category = category
+                                            Category = category.Name,
+                                            Count = book.Count()
                                         }
                                 )
-                                .Where(b => b.Category.Count() >= 4)
+                                .Where(b => b.Count >= 4)
                                 ;
+
             foreach (var count in counts)
             {
                 Console.WriteLine($"{count.Category}");
