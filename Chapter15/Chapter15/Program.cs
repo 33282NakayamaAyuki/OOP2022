@@ -101,10 +101,8 @@ namespace Chapter15 {
                                             PublishedYear = book.PublishedYear
                                         }
                                    )
-                                  
                                   ;
 
-            
             foreach (var book in books1)
             {
                 Console.WriteLine($"発行年:{book.PublishedYear},タイトル:{book.Title},カテゴリ-:{book.Category}");
