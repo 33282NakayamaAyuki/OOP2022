@@ -71,6 +71,26 @@ namespace Exercise１ {
 
         private static void Exercise1_5()
         {
+            var lists = Library.Books
+                               .Where(b => b.PublishedYear == 2016)
+                               .Join(Library.Categories,
+                                        book => book.CategoryId,
+                                        category => category.Id,
+                                        (book, category) => new
+                                        {
+                                            Category = category.Name
+                                        }
+                                        )
+                               .ToList()
+                               .Distinct()
+                              ;
+
+            foreach (var list in lists)
+            {
+                Console.WriteLine($"{list.Category}");
+            }
+
+
         }
 
         private static void Exercise1_6()
