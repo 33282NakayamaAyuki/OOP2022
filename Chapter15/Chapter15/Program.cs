@@ -98,15 +98,20 @@ namespace Chapter15 {
                                         {
                                             Title = book.Title,
                                             Category = category.Name,
-                                            PublishedYear = book.PublishedYear
+                                            PublishedYear = book.PublishedYear,
+                                            Price = book.Price
                                         }
-                                   )
+                                   ).ToList()
                                   ;
 
-            foreach (var book in books1)
+            foreach (var book in books1.OrderByDescending(x=>x.PublishedYear)
+                                       .ThenBy(x=>x.Category))
             {
-                Console.WriteLine($"発行年:{book.PublishedYear},タイトル:{book.Title},カテゴリ-:{book.Category}");
+                Console.WriteLine($"発行年:{book.PublishedYear},タイトル:{book.Title}" +
+                                  $",カテゴリ-:{book.Category},{book.Price}円");
             }
+
+            Console.WriteLine($"金額の合計{books1.Sum(b => b.Price)}円");
         }
     }
 }
