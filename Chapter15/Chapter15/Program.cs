@@ -54,7 +54,7 @@ namespace Chapter15 {
                 }
             }
 
-            Console.WriteLine();
+            Console.WriteLine("------------------------------");
 
             var groups = Library.Books
                                 .Where(b => years.Contains(b.PublishedYear))
@@ -69,6 +69,45 @@ namespace Chapter15 {
                     var category = Library.Categories.Where(b => b.Id == book.CategoryId).First();
                     Console.Write($"タイトル:{book.Title},価格:{book.Price},カテゴリ:{category.Name}");
                 }
+            }
+
+            Console.WriteLine("---------------------------------");
+
+            var selected = Library.Books
+                                  .GroupBy(b => b.PublishedYear)
+                                  .Select(group => group.OrderBy(b => b.Price).First())
+                                  .OrderBy(o => o.PublishedYear);
+
+            foreach (var book in selected)
+            {
+                Console.WriteLine($"{book.PublishedYear}年");
+                var category = Library.Categories.Where(b => b.Id == book.CategoryId).First();
+                Console.WriteLine($"タイトル:{book.Title},価格:{book.Price},カテゴリ:{category.Name}");
+            }
+
+            Console.WriteLine("---------------------------------");
+
+            var books1 = Library.Books
+                                  .Where(b => years.Contains(b.PublishedYear))
+                                  .OrderByDescending(b => b.PublishedYear)
+                                  .ThenBy(b => b.CategoryId)
+                                  .Join(Library.Categories,
+                                        book => book.CategoryId,
+                                        category => category.Id,
+                                        (book, category) => new
+                                        {
+                                            Title = book.Title,
+                                            Category = category.Name,
+                                            PublishedYear = book.PublishedYear
+                                        }
+                                   )
+                                  
+                                  ;
+
+            
+            foreach (var book in books1)
+            {
+                Console.WriteLine($"発行年:{book.PublishedYear},タイトル:{book.Title},カテゴリ-:{book.Category}");
             }
         }
     }
