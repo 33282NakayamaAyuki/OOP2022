@@ -27,10 +27,17 @@ namespace Exercise１ {
 
         private static void Exercise1_2()
         {
+            var maxpoint = Library.Books
+                           .OrderByDescending(b => b.Price)
+                           .First()
+                           ;
+            Console.WriteLine("一番高い金額の書籍は");
+            Console.WriteLine(maxpoint);
         }
 
         private static void Exercise1_3()
         {
+
         }
 
         private static void Exercise1_4()
