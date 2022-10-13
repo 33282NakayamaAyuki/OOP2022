@@ -153,7 +153,8 @@ namespace Exercise１ {
                                 category => category.CategoryId,
                                         (category, book) => new
                                         {
-                                            Category = category.Name,
+                                            Category = category.Name
+                                            ,
                                             Count = book.Count()
                                         }
                                 )
