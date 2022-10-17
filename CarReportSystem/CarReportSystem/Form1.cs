@@ -256,12 +256,17 @@ namespace CarReportSystem {
             GetRbInfomation();
             cbCarName.Text = carReportDBDataGridView.CurrentRow.Cells[4].Value.ToString();
             tbAddress.Text = carReportDBDataGridView.CurrentRow.Cells[5].Value.ToString();
-            if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull))
+            try
             {
-                pbPicture.Image = ByteArrayToImage((byte[])carReportDBDataGridView.CurrentRow.Cells[6].Value);
-            } else
-            {
-                pbPicture.Image = null;
+                if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull))
+                {
+                    pbPicture.Image = ByteArrayToImage((byte[])carReportDBDataGridView.CurrentRow.Cells[6].Value);
+                } else
+                {
+                    pbPicture.Image = null;
+                }
+            } catch { 
+            
             }
         }
 
@@ -399,6 +404,5 @@ namespace CarReportSystem {
             byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return b;
         }
-
     }
 }
