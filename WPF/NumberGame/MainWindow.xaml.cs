@@ -18,9 +18,39 @@ namespace NumberGame {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+        
+        Random random = new Random();
+        int number;
+        
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+    
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button bt = (Button)sender;
+
+            if ((string)bt.Content == number.ToString())
+            {
+                TextBlock.Text = "当たり!";
+                bt.Background = Brushes.Red;
+            } else {
+                
+                TextBlock.Text = int.Parse((string)bt.Content) < number
+                                                ?"もっと大きいです!" : "もっと小さいです";
+                bt.Background = int.Parse((string)bt.Content) < number
+                                    ? Brushes.Blue : Brushes.Green;
+            }
+        }
+
+        private void Button_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock.Text = "ゲームスタート";
+            number = random.Next(1, 25);
         }
     }
 }
