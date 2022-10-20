@@ -256,6 +256,7 @@ namespace CarReportSystem {
             GetRbInfomation();
             cbCarName.Text = carReportDBDataGridView.CurrentRow.Cells[4].Value.ToString();
             tbAddress.Text = carReportDBDataGridView.CurrentRow.Cells[5].Value.ToString();
+            pbPicture.Image = null;
             try
             {
                 if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull))
