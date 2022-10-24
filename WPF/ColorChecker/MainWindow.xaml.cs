@@ -21,12 +21,23 @@ namespace ColorChecker {
         public MainWindow()
         {
             InitializeComponent();
+            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
         }
 
 
-        private void LabelColor_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void SliderRed_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value,(byte)SliderGreen.Value,(byte)SliderBlue.Value));
+            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
+        }
+
+        private void SliderGreen_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
+        }
+
+        private void SliderBlue_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
         }
     }
 }

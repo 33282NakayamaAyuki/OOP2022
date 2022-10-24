@@ -20,15 +20,15 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="LabelColor" Grid.Column="0" Grid.Row="1" Width="300" Height="300" DataContextChanged="LabelColor_DataContextChanged"  />
+        <Label x:Name="LabelColor" Grid.Column="0" Grid.Row="1" Width="300" Height="300" Margin="54,0,47,24" Grid.RowSpan="4" Background="#FFD85050"  />
         <TextBlock x:Name="TextBlockRed" Text="R" Grid.Column="1" Grid.Row="1" Width="30" HorizontalAlignment="Left" FontSize="20"/>
         <TextBlock x:Name="TextBlockGreen" Text="G" Grid.Column="1" Grid.Row="2" Width="30" HorizontalAlignment="Left" FontSize="20"/>
         <TextBlock x:Name="TextBlockBlue" Text="B" Grid.Column="1" Grid.Row="3" Width="30" HorizontalAlignment="Left" FontSize="20"/>
         <TextBox x:Name="TextBoxRed" Grid.Column="1" Grid.Row="1" Width="50" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Text="{Binding Value, ElementName=SliderRed, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox x:Name="TextBoxGreen"  Grid.Column="1" Grid.Row="2" Width="50" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Text="{Binding Value, ElementName=SliderGreen, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox x:Name="TextBoxBlue"  Grid.Column="1" Grid.Row="3" Width="50" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Text="{Binding Value, ElementName=SliderBlue, UpdateSourceTrigger=PropertyChanged}"/>
-        <Slider x:Name="SliderRed"  Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Center" Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True"/>
-        <Slider x:Name="SliderGreen"  Grid.Column="1" Grid.Row="2" Width="200" HorizontalAlignment="Center" Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True"/>
-        <Slider x:Name="SliderBlue"  Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Center"  Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="SliderRed"  Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Center" Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True" ValueChanged="SliderRed_ValueChanged"/>
+        <Slider x:Name="SliderGreen"  Grid.Column="1" Grid.Row="2" Width="200" HorizontalAlignment="Center" Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True" ValueChanged="SliderGreen_ValueChanged"/>
+        <Slider x:Name="SliderBlue"  Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Center"  Margin="5" Minimum="0" Maximum="255" IsSnapToTickEnabled="True" ValueChanged="SliderBlue_ValueChanged"/>
     </Grid>
 </Window>
