@@ -22,6 +22,7 @@ namespace ColorChecker {
         {
             InitializeComponent();
             LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
+            
         }
 
 
@@ -39,5 +40,6 @@ namespace ColorChecker {
         {
             LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
         }
+
     }
 }
