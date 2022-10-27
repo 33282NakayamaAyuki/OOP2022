@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,6 +27,8 @@ namespace ColorChecker {
             InitializeComponent();
             LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
             DataContext = GetColorList();
+
+
         }
 
         private MyColor[] GetColorList()
@@ -37,17 +42,7 @@ namespace ColorChecker {
             public string Name { get; set; }
         }
 
-        private void SliderRed_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
-        }
-
-        private void SliderGreen_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
-        }
-
-        private void SliderBlue_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
         }
@@ -68,6 +63,21 @@ namespace ColorChecker {
             TextBoxRed.Text = color.R.ToString();
             TextBoxGreen.Text = color.G.ToString();
             TextBoxBlue.Text = color.B.ToString();
+        }
+
+        private void ButtonStack_Click(object sender, RoutedEventArgs e)
+        {
+            stockList.Items.Add(new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value)));
+        }
+
+        private class ColorInfo {
+            public SolidColorBrush Brush { get; set; }
+            public string Name { get; set; }
+        }
+
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LabelColor.Background = (Brush)stockList.SelectedItem;
         }
     }
 }
