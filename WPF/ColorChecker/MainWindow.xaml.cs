@@ -22,13 +22,14 @@ namespace ColorChecker {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+
+        MyColor mycolor;
+
         public MainWindow()
         {
             InitializeComponent();
             LabelColor.Background = new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value));
             DataContext = GetColorList();
-
-
         }
 
         private MyColor[] GetColorList()
@@ -40,6 +41,11 @@ namespace ColorChecker {
         public class MyColor {
             public Color Color { get; set; }
             public string Name { get; set; }
+
+            public static explicit operator MyColor(ComboBox v)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -55,9 +61,8 @@ namespace ColorChecker {
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            mycolor = (MyColor)((ComboBox)sender).SelectedItem;
             var color = mycolor.Color;
-            var name = mycolor.Name;
 
             LabelColor.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
             TextBoxRed.Text = color.R.ToString();
@@ -67,7 +72,8 @@ namespace ColorChecker {
 
         private void ButtonStack_Click(object sender, RoutedEventArgs e)
         {
-            stockList.Items.Add(new SolidColorBrush(Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value)));
+            var color = mycolor.Color;
+            stockList.Items.Add(color);
         }
 
         private class ColorInfo {
@@ -77,7 +83,16 @@ namespace ColorChecker {
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LabelColor.Background = (Brush)stockList.SelectedItem;
+            LabelColor.Background = (Brush)stockList.SelectedItem;  
+        }
+
+        private void ButtonRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (stockList.SelectedItem != null)
+            {
+                int sel = stockList.SelectedIndex;
+                stockList.Items.RemoveAt(sel);
+            }
         }
     }
 }

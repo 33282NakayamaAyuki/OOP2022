@@ -34,7 +34,7 @@
         <Slider x:Name="SliderBlue"  Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Center" Margin="5" Minimum="0" Maximum="255"  ValueChanged="Slider_ValueChanged" TickPlacement="TopLeft" TickFrequency="50"/>
         <TextBox x:Name="TextBoxBlue"  Grid.Column="1" Grid.Row="3" Width="50" HorizontalAlignment="Right" FontSize="18" Text="{Binding Value, ElementName=SliderBlue, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,51"/>
 
-        <ComboBox ItemsSource="{Binding}" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Color}" Margin="3,30,3,3" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="ComboBoxColor" ItemsSource="{Binding}" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Color}" Margin="3,30,3,3" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -49,6 +49,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Button x:Name="ButtonSave" Grid.Column="1" Grid.Row="5" Margin="30,20,280,20" Content="STOCK" Click="ButtonStack_Click"/>
+        <Button x:Name="ButtonRemove" Grid.Column="1" Grid.Row="5" Margin="200,20,120,20" Content="REMOVE" Click="ButtonRemove_Click"/>
         <ListBox Name="stockList" Grid.Column="1" Margin="460,0,-382,0" Grid.RowSpan="4" Grid.Row="1" SelectionChanged="stockList_SelectionChanged"/>
 
     </Grid>
