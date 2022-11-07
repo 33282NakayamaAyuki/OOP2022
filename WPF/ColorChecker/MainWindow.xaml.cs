@@ -32,6 +32,8 @@ namespace ColorChecker {
             DataContext = GetColorList();
         }
 
+        
+
         private MyColor[] GetColorList()
         {
             return typeof(Colors).GetProperties(BindingFlags.Public | BindingFlags.Static)
@@ -42,9 +44,9 @@ namespace ColorChecker {
             public Color Color { get; set; }
             public string Name { get; set; }
 
-            public static explicit operator MyColor(ComboBox v)
+            public override string ToString()
             {
-                throw new NotImplementedException();
+                return $"R:{Color.R} G:{Color.G} B:{Color.B}";
             }
         }
 
@@ -72,8 +74,9 @@ namespace ColorChecker {
 
         private void ButtonStack_Click(object sender, RoutedEventArgs e)
         {
-            var color = mycolor.Color;
-            stockList.Items.Add(color);
+            MyColor item = new MyColor { Color = Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value) };
+            stockList.Items.Add(item);
+
         }
 
         private class ColorInfo {
@@ -83,7 +86,13 @@ namespace ColorChecker {
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LabelColor.Background = (Brush)stockList.SelectedItem;  
+            if (stockList.SelectedItem != null)
+            {
+                var select = (MyColor)stockList.SelectedItem;
+                TextBoxRed.Text = select.Color.R.ToString();
+                TextBoxGreen.Text = select.Color.G.ToString();
+                TextBoxBlue.Text = select.Color.B.ToString();
+            }
         }
 
         private void ButtonRemove_Click(object sender, RoutedEventArgs e)
