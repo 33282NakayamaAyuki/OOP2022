@@ -24,6 +24,7 @@ namespace ColorChecker {
     public partial class MainWindow : Window {
 
         MyColor mycolor;
+        List<MyColor> colorList = new List<MyColor>();
 
         public MainWindow()
         {
@@ -75,7 +76,15 @@ namespace ColorChecker {
         private void ButtonStack_Click(object sender, RoutedEventArgs e)
         {
             MyColor item = new MyColor { Color = Color.FromRgb((byte)SliderRed.Value, (byte)SliderGreen.Value, (byte)SliderBlue.Value) };
-            stockList.Items.Add(item);
+
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                            .Where(c => c.Color.R == item.Color.R &&
+                                        c.Color.G == item.Color.G &&
+                                        c.Color.B == item.Color.B).FirstOrDefault();
+
+            stockList.Items.Insert(0,colorName?.Name ?? "R:" + TextBoxRed.Text + " G:" + TextBoxGreen.Text + " B:" + TextBoxBlue);
+
+            colorList.Insert(0, item);
 
         }
 
@@ -86,13 +95,9 @@ namespace ColorChecker {
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (stockList.SelectedItem != null)
-            {
-                var select = (MyColor)stockList.SelectedItem;
-                TextBoxRed.Text = select.Color.R.ToString();
-                TextBoxGreen.Text = select.Color.G.ToString();
-                TextBoxBlue.Text = select.Color.B.ToString();
-            }
+            SliderRed.Value = colorList[stockList.SelectedIndex].Color.R;
+            SliderGreen.Value = colorList[stockList.SelectedIndex].Color.G;
+            SliderBlue.Value = colorList[stockList.SelectedIndex].Color.B;
         }
 
         private void ButtonRemove_Click(object sender, RoutedEventArgs e)
