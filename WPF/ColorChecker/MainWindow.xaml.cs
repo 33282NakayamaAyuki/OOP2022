@@ -54,10 +54,7 @@ namespace ColorChecker {
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();//Color情報を配列に
         }
 
-        private void Border_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void Border_Loaded(object sender, RoutedEventArgs e) { }
         
         //stockListの色情報をLabelに追加
         private void ButtonStack_Click(object sender, RoutedEventArgs e)
@@ -74,6 +71,7 @@ namespace ColorChecker {
 
             colorList.Add(item);
             //colorList.Insert(0,item);
+            EnableCheck();
 
         }
 
@@ -86,7 +84,7 @@ namespace ColorChecker {
                 stockList.Items.RemoveAt(sel);
                 colorList.RemoveAt(sel);
             }
-
+            EnableCheck();
         }
 
         //Sliderの値をLabelに
@@ -117,6 +115,9 @@ namespace ColorChecker {
             }
         }
 
-
+        private void EnableCheck()
+        {
+            ButtonRemove.IsEnabled =  stockList.Items.Count > 0 ? true : false;
+        }
     }
 }

@@ -48,7 +48,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Button x:Name="ButtonSave" Grid.Column="1" Grid.Row="4" Margin="180,10,120,10" Content="STOCK" Click="ButtonStack_Click"/>
-        <Button x:Name="ButtonRemove" Grid.Column="1" Grid.Row="4" Margin="310,10,0,10" Content="REMOVE" Click="ButtonRemove_Click"/>
+        <Button x:Name="ButtonRemove" Grid.Column="1" Grid.Row="4" Margin="310,10,0,10" Content="REMOVE" Click="ButtonRemove_Click" IsEnabled="False"/>
         <ListBox Name="stockList" Grid.Column="1" Margin="460,0,-200,20" Grid.RowSpan="4" Grid.Row="1" SelectionChanged="stockList_SelectionChanged"/>
 
     </Grid>
