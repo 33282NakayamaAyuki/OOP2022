@@ -69,7 +69,7 @@ namespace ColorChecker {
                                         c.Color.G == item.Color.G &&
                                         c.Color.B == item.Color.B).FirstOrDefault();
 
-            stockList.Items.Add(colorName?.Name ?? "R:" + TextBoxRed.Text + " G:" + TextBoxGreen.Text + " B:" + TextBoxBlue);
+            stockList.Items.Add(colorName?.Name ?? "R:" + TextBoxRed.Text + " G:" + TextBoxGreen.Text + " B:" + TextBoxBlue.Text);
             //stockList.Items.Insert(0,colorName?.Name ?? "R:" + TextBoxRed.Text + " G:" + TextBoxGreen.Text + " B:" + TextBoxBlue);
 
             colorList.Add(item);
