@@ -95,9 +95,11 @@ namespace ColorChecker {
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SliderRed.Value = colorList[stockList.SelectedIndex].Color.R;
-            SliderGreen.Value = colorList[stockList.SelectedIndex].Color.G;
-            SliderBlue.Value = colorList[stockList.SelectedIndex].Color.B;
+            if (stockList.SelectedIndex != -1) {
+                SliderRed.Value = colorList[stockList.SelectedIndex].Color.R;
+                SliderGreen.Value = colorList[stockList.SelectedIndex].Color.G;
+                SliderBlue.Value = colorList[stockList.SelectedIndex].Color.B;
+            }
         }
 
         private void ButtonRemove_Click(object sender, RoutedEventArgs e)
