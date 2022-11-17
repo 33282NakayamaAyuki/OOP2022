@@ -14,10 +14,4 @@ public class Rootobject {
     public string text { get; set; }
 }
 
-public class Placelist {
-    public string Name { get; set; }
-    public int Code { get; set; }
-
-}
-
    
