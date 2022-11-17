@@ -40,45 +40,25 @@ namespace WeartherApp {
             };
 
             var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{values[1]}.json");
+            var dClass = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{values[1]}.json");
 
             var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+            var weather = JsonConvert.DeserializeObject<Class1[]>(dClass);
             {
+                registarDate.Text = json.reportDatetime.ToString();
+                Office.Text = json.publishingOffice;
+                tbTodayWeather.Text = weather[0].timeSeries[0].areas[0].weathers[0];
+                tbTommorowWeather.Text = weather[0].timeSeries[0].areas[0].weathers[1];
+                tbDayAfterTommorowWeather.Text = weather[0].timeSeries[0].areas[0].weathers[2];
                 tbWeatherInfo.Text = json.text;
-                tbDatetime.Text = json.reportDatetime.ToString();
-                tbOffice.Text = json.publishingOffice;
-                if (json.text.Contains("晴れ"))
-                {
-                    tbWeather.Text = "晴れ";
-                } else if (json.text.Contains("曇り")) {
-                    tbWeather.Text = "曇り";
-                }
-
+                var todayWeather = weather[0].timeSeries[0].areas[0].weatherCodes[0];
+                var tommorrowWeather = weather[0].timeSeries[0].areas[0].weatherCodes[1];
+                var dayAfterTommorrowWeather = weather[0].timeSeries[0].areas[0].weatherCodes[2];
+                pbToday.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{todayWeather}.png";
+                pbTommorowWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{tommorrowWeather}.png";
+                pbDayAfterTommorowWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{dayAfterTommorrowWeather}.png";
             }
         }
 
-        private void GetWeatherPicture()
-        {
-            switch (int.Parse(values[2]))
-            {
-                case 1:
-                    tbWeather.Text = "晴れ";
-                    break;
-                case 2:
-                    tbWeather.Text = "曇り";
-                    break;
-                case 3:
-                    tbWeather.Text = "雨";
-                    break;
-                case 4:
-                    tbWeather.Text = "晴れまたは曇り";
-                    break;
-                case 5:
-                    tbWeather.Text = "晴れまたは雨";
-                    break;
-                case 6:
-                    tbWeather.Text = "曇りまたは雨";
-                    break;
-            }
-        }
     }
 }
