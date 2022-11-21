@@ -51,14 +51,26 @@ namespace WeartherApp {
                 tbTommorowWeather.Text = weather[0].timeSeries[0].areas[0].weathers[1];
                 tbDayAfterTommorowWeather.Text = weather[0].timeSeries[0].areas[0].weathers[2];
                 tbWeatherInfo.Text = json.text;
+
                 var todayWeather = weather[0].timeSeries[0].areas[0].weatherCodes[0];
                 var tommorrowWeather = weather[0].timeSeries[0].areas[0].weatherCodes[1];
                 var dayAfterTommorrowWeather = weather[0].timeSeries[0].areas[0].weatherCodes[2];
                 pbToday.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{todayWeather}.png";
                 pbTommorowWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{tommorrowWeather}.png";
                 pbDayAfterTommorowWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{dayAfterTommorrowWeather}.png";
+
+                var todayMax = weather[1].timeSeries[1].areas[0].tempsMax[0];
+                var todayMin = weather[1].timeSeries[1].areas[0].tempsMin[0];
+
+                if(todayMax != "") { tbTodayMax.Text = $"{weather[1].timeSeries[1].areas[0].tempsMax[0]}℃"; }
+                if (todayMin != "") { tbTodayMax.Text = $"{weather[1].timeSeries[1].areas[0].tempsMax[0]}℃"; }
+
+                tbTodayMin.Text = $"{weather[1].timeSeries[1].areas[0].tempsMin[0]}℃";
+                tbTomorrowMax.Text = $"{weather[1].timeSeries[1].areas[0].tempsMax[1]}℃";
+                tbTomorrowMin.Text = $"{weather[1].timeSeries[1].areas[0].tempsMin[1]}℃";
+                tbDayAfterTomorrowMax.Text = $"{weather[1].timeSeries[1].areas[0].tempsMax[2]}℃";
+                tbDayAfterTomorrowMin.Text = $"{weather[1].timeSeries[1].areas[0].tempsMin[2]}℃";
             }
         }
-
     }
 }
