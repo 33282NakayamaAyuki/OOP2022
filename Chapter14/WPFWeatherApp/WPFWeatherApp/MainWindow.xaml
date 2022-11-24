@@ -20,7 +20,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <ComboBox HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" Width="120" FontSize="15" Grid.Column="1" Grid.Row="0" >
+        <ComboBox HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" Width="120" FontSize="15" Grid.Column="1" Grid.Row="0" SelectionChanged="ComboBox_SelectionChanged" AutomationProperties.Name="cbPlace" >
             <ComboBoxItem Content="宗谷地方"/>
             <ComboBoxItem Content="上川・留萌地方"/>
             <ComboBoxItem Content="網走・北見・紋別地方"/>

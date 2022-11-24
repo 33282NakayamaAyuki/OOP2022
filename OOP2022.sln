@@ -142,8 +142,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section01", "Chapter14\Sect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeartherApp", "Chapter14\WeartherApp\WeartherApp.csproj", "{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWeatherApp", "Chapter14\WPFWeatherApp\WPFWeatherApp\WPFWeatherApp.csproj", "{ECC1305C-AECA-41C3-8640-517552A25B0F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -346,10 +344,6 @@ Global
 		{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ECC1305C-AECA-41C3-8640-517552A25B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECC1305C-AECA-41C3-8640-517552A25B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECC1305C-AECA-41C3-8640-517552A25B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECC1305C-AECA-41C3-8640-517552A25B0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -406,7 +400,6 @@ Global
 		{8317F0A3-8194-4C76-8E7E-0326D37A536D} = {B8EEDC06-0955-4730-86AC-B7A0080507F4}
 		{41346B4B-52B2-46D8-8F7C-F1129776B8CA} = {142E5411-19A0-4FFB-8A75-5E2559367A95}
 		{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E} = {142E5411-19A0-4FFB-8A75-5E2559367A95}
-		{ECC1305C-AECA-41C3-8640-517552A25B0F} = {142E5411-19A0-4FFB-8A75-5E2559367A95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E3ABF23-26C7-4C40-AF2C-2B5E4325C46F}

@@ -27,66 +27,45 @@ namespace WeartherApp {
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbWeatherInfo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label104 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbPlace = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbTodayWeather = new System.Windows.Forms.TextBox();
-            this.Office = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbTommorowWeather = new System.Windows.Forms.TextBox();
-            this.tbDayAfterTommorowWeather = new System.Windows.Forms.TextBox();
-            this.registarDate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label105 = new System.Windows.Forms.Label();
             this.pbToday = new System.Windows.Forms.PictureBox();
             this.pbTommorowWeather = new System.Windows.Forms.PictureBox();
             this.pbDayAfterTommorowWeather = new System.Windows.Forms.PictureBox();
-            this.tbTodayMin = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTodayMax = new System.Windows.Forms.TextBox();
-            this.tbTomorrowMax = new System.Windows.Forms.TextBox();
-            this.tbTomorrowMin = new System.Windows.Forms.TextBox();
-            this.tbDayAfterTomorrowMax = new System.Windows.Forms.TextBox();
-            this.tbDayAfterTomorrowMin = new System.Windows.Forms.TextBox();
+            this.label106 = new System.Windows.Forms.Label();
+            this.weatherInfo = new System.Windows.Forms.Label();
+            this.registarDate = new System.Windows.Forms.Label();
+            this.office = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.lbTodayMax = new System.Windows.Forms.Label();
+            this.lbTodayMin = new System.Windows.Forms.Label();
+            this.lbTomorrowMax = new System.Windows.Forms.Label();
+            this.lbTomorrowMin = new System.Windows.Forms.Label();
+            this.lbDayAfterTomorrowMax = new System.Windows.Forms.Label();
+            this.lbDayAfterTomorrowMin = new System.Windows.Forms.Label();
+            this.lbTodayWeather = new System.Windows.Forms.Label();
+            this.lbTommorowWeather = new System.Windows.Forms.Label();
+            this.lbDayAfterTommorowWeather = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbToday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTommorowWeather)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDayAfterTommorowWeather)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
+            // label104
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(37, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 33);
-            this.label2.TabIndex = 2;
-            // 
-            // tbWeatherInfo
-            // 
-            this.tbWeatherInfo.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbWeatherInfo.Location = new System.Drawing.Point(134, 490);
-            this.tbWeatherInfo.Multiline = true;
-            this.tbWeatherInfo.Name = "tbWeatherInfo";
-            this.tbWeatherInfo.Size = new System.Drawing.Size(590, 137);
-            this.tbWeatherInfo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(39, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "地域";
+            this.label104.AutoSize = true;
+            this.label104.BackColor = System.Drawing.Color.Transparent;
+            this.label104.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label104.ForeColor = System.Drawing.Color.Yellow;
+            this.label104.Location = new System.Drawing.Point(39, 159);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(0, 24);
+            this.label104.TabIndex = 2;
             // 
             // label3
             // 
@@ -161,150 +140,65 @@ namespace WeartherApp {
             "大東島地方",
             "宮古島地方",
             "八重山地方"});
-            this.cbPlace.Location = new System.Drawing.Point(134, 40);
+            this.cbPlace.Location = new System.Drawing.Point(129, 35);
             this.cbPlace.Name = "cbPlace";
-            this.cbPlace.Size = new System.Drawing.Size(165, 32);
+            this.cbPlace.Size = new System.Drawing.Size(282, 32);
             this.cbPlace.TabIndex = 3;
             this.cbPlace.SelectedIndexChanged += new System.EventHandler(this.cbPlace_SelectedIndexChanged);
             // 
-            // label6
+            // label101
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Info;
-            this.label6.Location = new System.Drawing.Point(518, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 16);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "記録日：";
+            this.label101.BackColor = System.Drawing.Color.Transparent;
+            this.label101.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label101.ForeColor = System.Drawing.Color.Yellow;
+            this.label101.Location = new System.Drawing.Point(125, 115);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(58, 24);
+            this.label101.TabIndex = 2;
             // 
-            // label7
+            // label102
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Info;
-            this.label7.Location = new System.Drawing.Point(518, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "気象局：";
+            this.label102.BackColor = System.Drawing.Color.Transparent;
+            this.label102.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label102.ForeColor = System.Drawing.Color.Yellow;
+            this.label102.Location = new System.Drawing.Point(355, 115);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(74, 24);
+            this.label102.TabIndex = 2;
             // 
-            // tbTodayWeather
+            // label103
             // 
-            this.tbTodayWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTodayWeather.Location = new System.Drawing.Point(129, 148);
-            this.tbTodayWeather.Multiline = true;
-            this.tbTodayWeather.Name = "tbTodayWeather";
-            this.tbTodayWeather.Size = new System.Drawing.Size(170, 64);
-            this.tbTodayWeather.TabIndex = 5;
+            this.label103.BackColor = System.Drawing.Color.Transparent;
+            this.label103.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label103.ForeColor = System.Drawing.Color.Yellow;
+            this.label103.Location = new System.Drawing.Point(557, 115);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(74, 24);
+            this.label103.TabIndex = 2;
             // 
-            // Office
+            // label105
             // 
-            this.Office.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Office.Location = new System.Drawing.Point(580, 48);
-            this.Office.Name = "Office";
-            this.Office.Size = new System.Drawing.Size(171, 23);
-            this.Office.TabIndex = 5;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label9.ForeColor = System.Drawing.Color.Yellow;
-            this.label9.Location = new System.Drawing.Point(125, 115);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 24);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "今日";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.ForeColor = System.Drawing.Color.Yellow;
-            this.label10.Location = new System.Drawing.Point(355, 115);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 24);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "１日後";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.ForeColor = System.Drawing.Color.Yellow;
-            this.label11.Location = new System.Drawing.Point(557, 115);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 24);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "２日後";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(12, 490);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "天気概況";
-            // 
-            // tbTommorowWeather
-            // 
-            this.tbTommorowWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTommorowWeather.Location = new System.Drawing.Point(359, 148);
-            this.tbTommorowWeather.Multiline = true;
-            this.tbTommorowWeather.Name = "tbTommorowWeather";
-            this.tbTommorowWeather.Size = new System.Drawing.Size(156, 64);
-            this.tbTommorowWeather.TabIndex = 5;
-            // 
-            // tbDayAfterTommorowWeather
-            // 
-            this.tbDayAfterTommorowWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbDayAfterTommorowWeather.Location = new System.Drawing.Point(561, 148);
-            this.tbDayAfterTommorowWeather.Multiline = true;
-            this.tbDayAfterTommorowWeather.Name = "tbDayAfterTommorowWeather";
-            this.tbDayAfterTommorowWeather.Size = new System.Drawing.Size(163, 64);
-            this.tbDayAfterTommorowWeather.TabIndex = 5;
-            // 
-            // registarDate
-            // 
-            this.registarDate.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.registarDate.Location = new System.Drawing.Point(580, 14);
-            this.registarDate.Name = "registarDate";
-            this.registarDate.Size = new System.Drawing.Size(171, 23);
-            this.registarDate.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(12, 389);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 24);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "最高気温";
+            this.label105.AutoSize = true;
+            this.label105.BackColor = System.Drawing.Color.Transparent;
+            this.label105.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label105.ForeColor = System.Drawing.Color.Red;
+            this.label105.Location = new System.Drawing.Point(12, 389);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(0, 24);
+            this.label105.TabIndex = 2;
             // 
             // pbToday
             // 
-            this.pbToday.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pbToday.Location = new System.Drawing.Point(134, 245);
+            this.pbToday.BackColor = System.Drawing.Color.Transparent;
+            this.pbToday.Location = new System.Drawing.Point(129, 245);
             this.pbToday.Name = "pbToday";
-            this.pbToday.Size = new System.Drawing.Size(165, 90);
+            this.pbToday.Size = new System.Drawing.Size(153, 90);
             this.pbToday.TabIndex = 6;
             this.pbToday.TabStop = false;
             // 
             // pbTommorowWeather
             // 
-            this.pbTommorowWeather.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbTommorowWeather.BackColor = System.Drawing.Color.Transparent;
             this.pbTommorowWeather.Location = new System.Drawing.Point(359, 245);
             this.pbTommorowWeather.Name = "pbTommorowWeather";
             this.pbTommorowWeather.Size = new System.Drawing.Size(156, 90);
@@ -313,118 +207,179 @@ namespace WeartherApp {
             // 
             // pbDayAfterTommorowWeather
             // 
-            this.pbDayAfterTommorowWeather.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbDayAfterTommorowWeather.BackColor = System.Drawing.Color.Transparent;
             this.pbDayAfterTommorowWeather.Location = new System.Drawing.Point(571, 245);
             this.pbDayAfterTommorowWeather.Name = "pbDayAfterTommorowWeather";
             this.pbDayAfterTommorowWeather.Size = new System.Drawing.Size(153, 90);
             this.pbDayAfterTommorowWeather.TabIndex = 6;
             this.pbDayAfterTommorowWeather.TabStop = false;
             // 
-            // tbTodayMin
+            // label106
             // 
-            this.tbTodayMin.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTodayMin.ForeColor = System.Drawing.Color.Blue;
-            this.tbTodayMin.Location = new System.Drawing.Point(171, 441);
-            this.tbTodayMin.Multiline = true;
-            this.tbTodayMin.Name = "tbTodayMin";
-            this.tbTodayMin.Size = new System.Drawing.Size(95, 24);
-            this.tbTodayMin.TabIndex = 5;
+            this.label106.AutoSize = true;
+            this.label106.BackColor = System.Drawing.Color.Transparent;
+            this.label106.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label106.ForeColor = System.Drawing.Color.Blue;
+            this.label106.Location = new System.Drawing.Point(12, 441);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(0, 24);
+            this.label106.TabIndex = 2;
             // 
-            // label8
+            // weatherInfo
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(12, 441);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 24);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "最低気温";
+            this.weatherInfo.BackColor = System.Drawing.Color.Transparent;
+            this.weatherInfo.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.weatherInfo.Location = new System.Drawing.Point(744, 87);
+            this.weatherInfo.Name = "weatherInfo";
+            this.weatherInfo.Size = new System.Drawing.Size(420, 390);
+            this.weatherInfo.TabIndex = 7;
             // 
-            // tbTodayMax
+            // registarDate
             // 
-            this.tbTodayMax.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTodayMax.ForeColor = System.Drawing.Color.Red;
-            this.tbTodayMax.Location = new System.Drawing.Point(171, 389);
-            this.tbTodayMax.Multiline = true;
-            this.tbTodayMax.Name = "tbTodayMax";
-            this.tbTodayMax.Size = new System.Drawing.Size(95, 24);
-            this.tbTodayMax.TabIndex = 5;
+            this.registarDate.BackColor = System.Drawing.Color.Transparent;
+            this.registarDate.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.registarDate.Location = new System.Drawing.Point(808, 38);
+            this.registarDate.Name = "registarDate";
+            this.registarDate.Size = new System.Drawing.Size(356, 32);
+            this.registarDate.TabIndex = 8;
             // 
-            // tbTomorrowMax
+            // office
             // 
-            this.tbTomorrowMax.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTomorrowMax.ForeColor = System.Drawing.Color.Red;
-            this.tbTomorrowMax.Location = new System.Drawing.Point(389, 389);
-            this.tbTomorrowMax.Multiline = true;
-            this.tbTomorrowMax.Name = "tbTomorrowMax";
-            this.tbTomorrowMax.Size = new System.Drawing.Size(95, 24);
-            this.tbTomorrowMax.TabIndex = 5;
+            this.office.BackColor = System.Drawing.Color.Transparent;
+            this.office.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.office.Location = new System.Drawing.Point(502, 38);
+            this.office.Name = "office";
+            this.office.Size = new System.Drawing.Size(257, 32);
+            this.office.TabIndex = 9;
             // 
-            // tbTomorrowMin
+            // label
             // 
-            this.tbTomorrowMin.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbTomorrowMin.ForeColor = System.Drawing.Color.Blue;
-            this.tbTomorrowMin.Location = new System.Drawing.Point(389, 441);
-            this.tbTomorrowMin.Multiline = true;
-            this.tbTomorrowMin.Name = "tbTomorrowMin";
-            this.tbTomorrowMin.Size = new System.Drawing.Size(95, 24);
-            this.tbTomorrowMin.TabIndex = 5;
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label.Location = new System.Drawing.Point(39, 38);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(58, 24);
+            this.label.TabIndex = 2;
+            this.label.Text = "地域";
             // 
-            // tbDayAfterTomorrowMax
+            // lbTodayMax
             // 
-            this.tbDayAfterTomorrowMax.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbDayAfterTomorrowMax.ForeColor = System.Drawing.Color.Red;
-            this.tbDayAfterTomorrowMax.Location = new System.Drawing.Point(603, 389);
-            this.tbDayAfterTomorrowMax.Multiline = true;
-            this.tbDayAfterTomorrowMax.Name = "tbDayAfterTomorrowMax";
-            this.tbDayAfterTomorrowMax.Size = new System.Drawing.Size(95, 24);
-            this.tbDayAfterTomorrowMax.TabIndex = 5;
+            this.lbTodayMax.BackColor = System.Drawing.Color.Transparent;
+            this.lbTodayMax.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTodayMax.ForeColor = System.Drawing.Color.Red;
+            this.lbTodayMax.Location = new System.Drawing.Point(246, 390);
+            this.lbTodayMax.Name = "lbTodayMax";
+            this.lbTodayMax.Size = new System.Drawing.Size(65, 23);
+            this.lbTodayMax.TabIndex = 10;
             // 
-            // tbDayAfterTomorrowMin
+            // lbTodayMin
             // 
-            this.tbDayAfterTomorrowMin.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbDayAfterTomorrowMin.ForeColor = System.Drawing.Color.Blue;
-            this.tbDayAfterTomorrowMin.Location = new System.Drawing.Point(603, 441);
-            this.tbDayAfterTomorrowMin.Multiline = true;
-            this.tbDayAfterTomorrowMin.Name = "tbDayAfterTomorrowMin";
-            this.tbDayAfterTomorrowMin.Size = new System.Drawing.Size(95, 24);
-            this.tbDayAfterTomorrowMin.TabIndex = 5;
+            this.lbTodayMin.BackColor = System.Drawing.Color.Transparent;
+            this.lbTodayMin.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTodayMin.ForeColor = System.Drawing.Color.Blue;
+            this.lbTodayMin.Location = new System.Drawing.Point(250, 442);
+            this.lbTodayMin.Name = "lbTodayMin";
+            this.lbTodayMin.Size = new System.Drawing.Size(61, 23);
+            this.lbTodayMin.TabIndex = 10;
+            // 
+            // lbTomorrowMax
+            // 
+            this.lbTomorrowMax.BackColor = System.Drawing.Color.Transparent;
+            this.lbTomorrowMax.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTomorrowMax.ForeColor = System.Drawing.Color.Red;
+            this.lbTomorrowMax.Location = new System.Drawing.Point(451, 390);
+            this.lbTomorrowMax.Name = "lbTomorrowMax";
+            this.lbTomorrowMax.Size = new System.Drawing.Size(72, 23);
+            this.lbTomorrowMax.TabIndex = 10;
+            // 
+            // lbTomorrowMin
+            // 
+            this.lbTomorrowMin.BackColor = System.Drawing.Color.Transparent;
+            this.lbTomorrowMin.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTomorrowMin.ForeColor = System.Drawing.Color.Blue;
+            this.lbTomorrowMin.Location = new System.Drawing.Point(455, 441);
+            this.lbTomorrowMin.Name = "lbTomorrowMin";
+            this.lbTomorrowMin.Size = new System.Drawing.Size(68, 23);
+            this.lbTomorrowMin.TabIndex = 10;
+            // 
+            // lbDayAfterTomorrowMax
+            // 
+            this.lbDayAfterTomorrowMax.BackColor = System.Drawing.Color.Transparent;
+            this.lbDayAfterTomorrowMax.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbDayAfterTomorrowMax.ForeColor = System.Drawing.Color.Red;
+            this.lbDayAfterTomorrowMax.Location = new System.Drawing.Point(662, 390);
+            this.lbDayAfterTomorrowMax.Name = "lbDayAfterTomorrowMax";
+            this.lbDayAfterTomorrowMax.Size = new System.Drawing.Size(76, 23);
+            this.lbDayAfterTomorrowMax.TabIndex = 10;
+            // 
+            // lbDayAfterTomorrowMin
+            // 
+            this.lbDayAfterTomorrowMin.BackColor = System.Drawing.Color.Transparent;
+            this.lbDayAfterTomorrowMin.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbDayAfterTomorrowMin.ForeColor = System.Drawing.Color.Blue;
+            this.lbDayAfterTomorrowMin.Location = new System.Drawing.Point(666, 441);
+            this.lbDayAfterTomorrowMin.Name = "lbDayAfterTomorrowMin";
+            this.lbDayAfterTomorrowMin.Size = new System.Drawing.Size(72, 23);
+            this.lbDayAfterTomorrowMin.TabIndex = 10;
+            // 
+            // lbTodayWeather
+            // 
+            this.lbTodayWeather.BackColor = System.Drawing.Color.Transparent;
+            this.lbTodayWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTodayWeather.Location = new System.Drawing.Point(125, 159);
+            this.lbTodayWeather.Name = "lbTodayWeather";
+            this.lbTodayWeather.Size = new System.Drawing.Size(155, 64);
+            this.lbTodayWeather.TabIndex = 11;
+            // 
+            // lbTommorowWeather
+            // 
+            this.lbTommorowWeather.BackColor = System.Drawing.Color.Transparent;
+            this.lbTommorowWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTommorowWeather.Location = new System.Drawing.Point(365, 159);
+            this.lbTommorowWeather.Name = "lbTommorowWeather";
+            this.lbTommorowWeather.Size = new System.Drawing.Size(158, 64);
+            this.lbTommorowWeather.TabIndex = 11;
+            // 
+            // lbDayAfterTommorowWeather
+            // 
+            this.lbDayAfterTommorowWeather.BackColor = System.Drawing.Color.Transparent;
+            this.lbDayAfterTommorowWeather.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbDayAfterTommorowWeather.Location = new System.Drawing.Point(569, 164);
+            this.lbDayAfterTommorowWeather.Name = "lbDayAfterTommorowWeather";
+            this.lbDayAfterTommorowWeather.Size = new System.Drawing.Size(155, 64);
+            this.lbDayAfterTommorowWeather.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WeartherApp.Properties.Resources.tennki;
-            this.ClientSize = new System.Drawing.Size(763, 639);
+            this.ClientSize = new System.Drawing.Size(1176, 486);
+            this.Controls.Add(this.lbDayAfterTommorowWeather);
+            this.Controls.Add(this.lbTommorowWeather);
+            this.Controls.Add(this.lbTodayWeather);
+            this.Controls.Add(this.lbTodayMin);
+            this.Controls.Add(this.lbTomorrowMin);
+            this.Controls.Add(this.lbDayAfterTomorrowMin);
+            this.Controls.Add(this.lbDayAfterTomorrowMax);
+            this.Controls.Add(this.lbTomorrowMax);
+            this.Controls.Add(this.lbTodayMax);
+            this.Controls.Add(this.office);
+            this.Controls.Add(this.registarDate);
+            this.Controls.Add(this.weatherInfo);
             this.Controls.Add(this.pbDayAfterTommorowWeather);
             this.Controls.Add(this.pbTommorowWeather);
             this.Controls.Add(this.pbToday);
-            this.Controls.Add(this.registarDate);
-            this.Controls.Add(this.Office);
-            this.Controls.Add(this.tbDayAfterTommorowWeather);
-            this.Controls.Add(this.tbTommorowWeather);
-            this.Controls.Add(this.tbDayAfterTomorrowMin);
-            this.Controls.Add(this.tbDayAfterTomorrowMax);
-            this.Controls.Add(this.tbTomorrowMax);
-            this.Controls.Add(this.tbTodayMax);
-            this.Controls.Add(this.tbTomorrowMin);
-            this.Controls.Add(this.tbTodayMin);
-            this.Controls.Add(this.tbTodayWeather);
             this.Controls.Add(this.cbPlace);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbWeatherInfo);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.label104);
+            this.Controls.Add(this.label103);
+            this.Controls.Add(this.label102);
+            this.Controls.Add(this.label106);
+            this.Controls.Add(this.label105);
+            this.Controls.Add(this.label101);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbToday)).EndInit();
@@ -436,33 +391,30 @@ namespace WeartherApp {
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbWeatherInfo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label104;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbPlace;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbTodayWeather;
-        private System.Windows.Forms.TextBox Office;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbTommorowWeather;
-        private System.Windows.Forms.TextBox tbDayAfterTommorowWeather;
-        private System.Windows.Forms.TextBox registarDate;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Label label105;
         private System.Windows.Forms.PictureBox pbToday;
         private System.Windows.Forms.PictureBox pbTommorowWeather;
         private System.Windows.Forms.PictureBox pbDayAfterTommorowWeather;
-        private System.Windows.Forms.TextBox tbTodayMin;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbTodayMax;
-        private System.Windows.Forms.TextBox tbTomorrowMax;
-        private System.Windows.Forms.TextBox tbTomorrowMin;
-        private System.Windows.Forms.TextBox tbDayAfterTomorrowMax;
-        private System.Windows.Forms.TextBox tbDayAfterTomorrowMin;
+        private System.Windows.Forms.Label label106;
+        private System.Windows.Forms.Label weatherInfo;
+        private System.Windows.Forms.Label registarDate;
+        private System.Windows.Forms.Label office;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label lbTodayMax;
+        private System.Windows.Forms.Label lbTodayMin;
+        private System.Windows.Forms.Label lbTomorrowMax;
+        private System.Windows.Forms.Label lbTomorrowMin;
+        private System.Windows.Forms.Label lbDayAfterTomorrowMax;
+        private System.Windows.Forms.Label lbDayAfterTomorrowMin;
+        private System.Windows.Forms.Label lbTodayWeather;
+        private System.Windows.Forms.Label lbTommorowWeather;
+        private System.Windows.Forms.Label lbDayAfterTommorowWeather;
     }
 }
 
