@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WeartherApp {
-    public partial class Form1 : Form {
+    public partial class weatherApp : Form {
 
         List<string> lists = new List<string>();
         string[] values;
 
-        public Form1()
+        public weatherApp()
         {
             InitializeComponent();
             StreamReader sr = new StreamReader(@"Place.csv");
@@ -28,6 +28,7 @@ namespace WeartherApp {
                 string line = sr.ReadLine();
                 lists.Add(line);
             }
+            cbPlace.Text = "群馬県";
 
         }
 
@@ -84,15 +85,9 @@ namespace WeartherApp {
                 lbDayAfterTomorrowMax.Text = $"{weather[1].timeSeries[1].areas[0].tempsMax[2]}℃";
                 lbDayAfterTomorrowMin.Text = $"{weather[1].timeSeries[1].areas[0].tempsMin[2]}℃";
 
-                label101.Text = "今日";
-                label102.Text = "明日";
-                label103.Text = "明後日";
-                label104.Text = "天気";
-                label105.Text = "最高気温";
-                label106.Text = "最低気温";
             } catch (Exception)
             {
-                MessageBox.Show("インターネットに接続してください");
+                MessageBox.Show("エラー");
             }
         }
     }

@@ -140,7 +140,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter14", "Chapter14", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section01", "Chapter14\Section01\Section01.csproj", "{41346B4B-52B2-46D8-8F7C-F1129776B8CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeartherApp", "Chapter14\WeartherApp\WeartherApp.csproj", "{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "Chapter14\WeartherApp\WeatherApp.csproj", "{CECB4B82-4CFD-4AE4-828E-C0D62BD8469E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
